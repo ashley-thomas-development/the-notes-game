@@ -1,0 +1,680 @@
+/* BASE STYLES */
+:root {
+  --darkblue: #10375c;
+  --blue: #588da8;
+  --yellow: #f3c623;
+  --pink: #d8345f;
+  --black: #121212;
+  --darkgrey: #252525;
+  --midgrey: #424242;
+  --grey: #525252;
+  --lightgrey: #ccafaf;
+  --white: #ededed;
+}
+
+* {
+  user-select: none; /* supported by Chrome and Opera */
+   -webkit-user-select: none; /* Safari */
+   -khtml-user-select: none; /* Konqueror HTML */
+   -moz-user-select: none; /* Firefox */
+   -ms-user-select: none; /* Internet Explorer/Edge */
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #090909;
+  margin: 0;
+  text-align: center;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  font-family: blenny, sans-serif;
+}
+
+p {
+  font-family: dosis, sans-serif;
+  font-size: 19px;
+  letter-spacing: 1px;
+  margin: 0;
+  font-weight: bold;
+}
+
+/* END base */
+/* LAYOUT */
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 150px auto 200px 200px auto 150px;
+  grid-template-rows: 140px 50px 150px 150px 150px ;
+  grid-gap: 1rem;
+  background-color: #181818;
+  border-radius: 10px;
+  max-width: 1200px;
+  margin: 20px auto;
+  grid-template-areas:
+    "header header header header header header"
+    "...... message message message message ....."
+    "score ....... square1 square2 ........ meter"
+    "score ....... square3 square4 ........ meter"
+    "level instruct instruct instruct instruct options";
+  padding: 2rem;
+}
+
+/* LAYOUT - UNIVERSAL GRID ITEMS */
+.grid-container > div {
+  border-radius: 10px;
+}
+
+/* END layout */
+/* PLAY-STATE MODULE */
+
+.ps {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  z-index: 100;
+}
+
+.ps-btn {
+  width: 200px;
+  height: 133px;
+  border: solid 2px var(--black);
+  background-color: orange;
+  background-image: radial-gradient(rgba(0, 0, 0, 0), rgba(255, 255, 255, .1));
+  border-radius: 45px!important;
+  box-shadow: -8px 5px 15px var(--black), -8px 5px 6px 3px var(--black);
+  padding: 10px;
+  opacity: 0.6;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.btn-text {
+  font-size: 40px;
+  color: red;
+  padding: 14px;
+}
+
+/* INVITATION SCREEN */
+
+.ps-invite-pane {
+  height: 50%;
+  width: 50%;
+  background-color: #eee;
+  border-radius: 30px;
+  display: block;
+  opacity: 1;
+  transition: 3.8s ease-in-out opacity;
+}
+
+.invite-header {
+  color: black;
+  font-size: 80px;
+}
+
+.btn-invite {
+  background-color: orange;
+  transition: 1s ease-in-out background-color;
+}
+
+.is_invite-fade {
+  opacity: 0;
+
+}
+
+
+
+/* DEATH SCREEN */
+
+.ps-death-pane {
+  height: 100%;
+  width: 100%;
+  background-color: black;
+  display: none;
+}
+
+.anim_death-pane {
+  animation: 1.5s deathPaneAnim;
+}
+
+@keyframes deathPaneAnim {
+  0%    {width: 0%; height: 0%;}
+  100%  {width: 100%; height: 100%;}
+}
+
+.death-wrap {
+  height: 30%;
+  width: 70%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+.death-header {
+  color: red;
+  font-size: 80px;
+  animation: 4s deathFadeIn ease-in-out;
+  line-height: 0;
+}
+
+@keyframes deathFadeIn {
+  0%    {opacity: 0;}
+  30%   {opacity: 0;}
+  100%  {opacity: 1;}
+}
+
+.btn-death {
+  margin-top: 100px;
+  background-color: pink;
+  animation: 3s deathBtnFadeIn;
+  box-shadow: none;
+}
+
+@keyframes deathBtnFadeIn {
+  0%    {opacity: 0;}
+  45%   {opacity: 0;}
+  100%  {opacity: .6}
+}
+
+/* END playstate module*/
+/* HEADER */
+
+.item1 {
+  grid-area: header;
+  background-color: var(--pink);
+  padding: 10px;
+  box-shadow: 0px 0px 20px var(--black);
+
+}
+
+.game-header {
+}
+
+.simon-header {
+  letter-spacing: 1px;
+  margin-top: -3px;
+  font-size: 100px;
+  color: var(--darkblue);
+  line-height: 120px;
+  background-color: inherit;
+  -webkit-text-stroke: 1px black;
+  text-shadow:
+         5px 4px 0 black,
+       -1px -1px 0 black,
+        1px -1px 0 black,
+        -1px 1px 0 black,
+         1px 1px 0 black;
+}
+
+/* END header*/
+/* MESSAGES PANE */
+
+.item2 {
+  grid-area: message;
+}
+
+.msg-pane {
+}
+
+#messages-pop {
+  padding: 0;
+  font-size: 50px;
+  font-family: blenny, sans-serif;
+  color: var(--yellow);
+  line-height: 50px;
+  opacity: 0;
+}
+
+.anim_msg-pop {
+  animation-name: msgFade;
+  animation-duration: 3s;
+}
+
+@keyframes msgFade {
+  0%    {opacity: 1;}
+  55%   {opacity: 1;}
+  100%  {opacity: 0;}
+}
+
+/* END messages */
+/* SCORES */
+
+.item3 {
+  grid-area: score;
+  background-color: var(--lightgrey);
+  box-shadow: 0px 0px 20px var(--black);
+  position: relative;
+  z-index: 0;
+}
+
+.score-box {
+}
+
+.score-header {
+  font-size: 20px;
+  font-family: blenny, sans-serif;
+  line-height: 20px;
+  margin-top: 14px;
+  z-index: 99;
+  letter-spacing: 0px;
+
+}
+
+.score-box > p {
+  margin-top: 11px;
+  z-index: 98;
+
+}
+
+#player1HighScore {
+  z-index: 97;
+  font-family: blenny, sans-serif;
+  font-size: 26px;
+  margin-bottom: 15px;
+  line-height: 30px;
+  color: var(--blue);
+  -webkit-text-stroke: 1px black;
+  text-shadow:
+         2px 1px 0 black,
+       -1px -1px 0 black,
+        1px -1px 0 black,
+        -1px 1px 0 black,
+         1px 1px 0 black;
+
+}
+
+.score-fill-bar-border {
+  position: absolute;
+  bottom: 10px;
+  z-index: -13;
+  border: solid 2px var(--black);
+  float: left;
+  left: 10px;
+  height: 100%;
+  max-height: calc(100% - 20px);
+  width: calc(100% - 20px);
+  box-shadow: 0px 0px 8px var(--black), inset 0px 0px 4px var(--darkgrey);
+  background-color: #666;
+}
+
+/* END scores */
+/* COLOR SQUARE STYLE AND ANIMATION */
+
+.item4 {
+  grid-area: square1;
+}
+
+.color-square1 {
+  border: solid 2px var(--black);
+  background-color: red;
+  background-image: radial-gradient(rgba(0, 0, 0, 0), rgba(255, 255, 255, .1));
+  width: 90%;
+  height: 90%;
+  border-radius: 45px!important;
+  box-shadow: -8px 5px 15px var(--black), -8px 5px 6px 3px var(--black);
+  padding: 10px;
+  opacity: 0.6;
+  place-self: center;
+}
+
+.item5 {
+  grid-area: square2;
+}
+
+.color-square2 {
+  border: solid 2px var(--black);
+  background-color: green;
+  background-image: radial-gradient(rgba(0, 0, 0, 0), rgba(255, 255, 255, .1));
+  width: 90%;
+  height: 90%;
+  border-radius: 45px!important;
+  box-shadow: -8px 5px 15px var(--black), -8px 5px 6px 3px var(--black);
+  padding: 10px;
+  opacity: 0.6;
+  place-self: center;
+}
+
+.item6 {
+  grid-area: square3;
+}
+
+.color-square3 {
+  border: solid 2px var(--black);
+  background-color: yellow;
+  background-image: radial-gradient(rgba(0, 0, 0, 0), rgba(255, 255, 255, .1));
+  width: 90%;
+  height: 90%;
+  border-radius: 45px!important;
+  box-shadow: -8px 5px 15px var(--black), -8px 5px 6px 3px var(--black);
+  padding: 10px;
+  opacity: 0.6;
+  place-self: center;
+}
+
+.item7 {
+  grid-area: square4;
+}
+
+.color-square4 {
+  border: solid 2px var(--black);
+  width: 90%;
+  height: 90%;
+  border-radius: 45px!important;
+  padding: 10px;
+  opacity: 0.6;
+  box-shadow: -8px 5px 15px var(--black), -8px 5px 6px 3px var(--black);
+  place-self: center;
+  background-color: blue;
+  background-image: radial-gradient(rgba(0, 0, 0, 0), rgba(255, 255, 255, .1));
+}
+
+.anim_sq-glow:hover {
+  box-shadow: 0 0 30px #444, -10px 10px 20px var(--black);
+  opacity: 0.8;
+  transition-property: opacity, box-shadow;
+  transition-duration: .3s, 2s;
+  transition-timing-function: ease-in-out;
+}
+
+.anim_sq-pulse {
+  animation-name: sqAnimPulse;
+  animation-duration: .5s;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes sqAnimPulse {
+  0%    {width: 90%; height: 90%;}
+  50%   {width: 96%; height: 96%;}
+  100%  {width: 90%; height: 90%;}
+}
+
+.anim_color-change { /* Animation class for jQuery grab */
+}
+
+.shift { /* Animation class for jQuery grab */
+}
+
+/* END color squares */
+/* METER BOX */
+
+.item8 {
+  grid-area: meter;
+  background-color: var(--lightgrey);
+  padding: 10px;
+  position: relative;
+  z-index: 0;
+  box-shadow: 0px 0px 20px var(--black);
+}
+
+.meter-box {
+  font-family: blenny, sans-serif;
+}
+
+.meter-fill-bar {
+  position: absolute;
+  bottom: 10px;
+  z-index: -10;
+  border-bottom: solid 2px var(--black);
+  border-right: solid 2px var(--black);
+  border-left: solid 2px var(--black);
+  opacity: .8;
+  float: left;
+  height: 0%;
+  max-height: calc(100% - 22px);
+  width: calc(100% - 20px);
+  background-color: purple;
+  transition: 2s ease-in-out height;
+}
+
+.meter-fill-bar-border {
+  position: absolute;
+  bottom: 10px;
+  z-index: -13;
+  border: solid 2px var(--black);
+  float: left;
+  height: 100%;
+  max-height: calc(100% - 20px);
+  width: calc(100% - 20px);
+  box-shadow: 0px 0px 8px var(--black), inset 0px 0px 4px var(--darkgrey);
+  background-color: #666;
+}
+
+
+.meter-header {
+  font-size: 22px;
+  z-index: 99;
+}
+
+.meter-timer {
+  font-size: 66px;
+  line-height: 66px;
+  margin: 7px auto 18px;
+  z-index: 98;
+  color: var(--pink);
+  -webkit-text-stroke: 1px black;
+  text-shadow:
+         3px 2px 0 black,
+       -1px -1px 0 black,
+        1px -1px 0 black,
+        -1px 1px 0 black,
+         1px 1px 0 black;
+
+}
+
+.btn-meter {
+  z-index: -11;
+  width: 100px;
+  height: 66px;
+  text-align: center;
+  font-size: 22px;
+  color: var(--black);
+  display: none;
+  margin: 0px auto 15px;
+  border-radius: 12px;
+  box-shadow: 4px 3px 4px #333;
+  padding: 9px;
+  border: solid 2px var(--black);
+  transition: 1s opacity;
+}
+
+.btn-meter-ghosted {
+  background-color: var(--lightgrey);
+  z-index: -12;
+  width: 100px;
+  height: 66px;
+  text-align: center;
+  font-size: 22px;
+  color: var(--black);
+  display: block;
+  margin: 0px auto 15px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  float: left;
+  opacity: .5;
+  border-radius: 12px;
+  padding: 10px;
+}
+
+.btn-meter-ghosted-clear {
+  bottom: 93px;
+}
+
+.btn-meter-ghosted-replay {
+  bottom: 12px;
+}
+
+
+.btn-meter-clear {
+  background-color: var(--blue);
+}
+
+.btn-meter-replay {
+  background-color: var(--blue);
+}
+
+.is_clear-carry-over {
+  background-color: var(--blue);
+  display: none;
+  margin: 0px auto 15px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  float: left;
+  bottom: 93px;
+  z-index: 0;
+  transition: 2s background-color;
+  border: solid 2px var(--darkgrey);
+}
+
+.is_replay-carry-over {
+  background-color: var(--blue);
+  display: none;
+  margin: 0px auto 15px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  float: left;
+  bottom: 12px;
+  z-index: 0;
+  border: solid 2px var(--darkgrey);
+}
+
+.is_double {
+  animation: 1.8s ease-in-out smallPulse infinite;
+}
+
+@keyframes smallPulse {
+  0%      {background-color: var(--blue) }
+  50%     {background-color: var(--yellow)}
+  100%    {background-color: var(--blue) }
+}
+
+/* END meter*/
+/* LEVEL COUNTER */
+
+.item9 {
+  grid-area: level;
+  background-color: var(--lightgrey);
+  box-shadow: 0px 0px 20px var(--black);
+}
+
+.level-box {
+}
+
+.level-wrap {
+  background-color: inherit;
+  padding: 10px;
+  height: 100%;
+  width: 100%;
+  font-size: 25px;
+  font-family: blenny, sans-serif;
+  border-radius: 10px;
+}
+
+.level-line1 { /*For readability */
+}
+
+.level-num {
+  font-size: 50px;
+  line-height: 40px;
+  color: var(--pink);
+  -webkit-text-stroke: 1px black;
+  text-shadow:
+         3px 2px 0 black,
+       -1px -1px 0 black,
+        1px -1px 0 black,
+        -1px 1px 0 black,
+         1px 1px 0 black;
+
+}
+
+
+
+.is_level-num-change {
+  animation: .9s spin;
+  animation-timing-function: ease-in-out;
+}
+
+
+@keyframes spin {
+  0%   {opacity: 1;}
+  43%  {opacity: 0;}
+  57%  {opacity: 0;}
+  100% {transform: rotate(360deg); opacity: 1;}
+}
+
+.level-line2 { /*For readability */
+}
+
+/* END level*/
+/* INSTRUCTIONS STYLE AND ANIMATION */
+
+.item10 {
+  grid-area: instruct;
+}
+
+.instruct-pane {
+  align-self: center;
+}
+
+#instructions-pop {
+  font-family: blenny, sans-serif;
+  padding: 0;
+  font-size: 68px;
+  color: var(--pink);
+  opacity: 0;
+}
+
+.anim_instruct-pop {
+  animation-name: instructAnimFade;
+  animation-duration: 4s;
+}
+
+@keyframes instructAnimFade {
+  0%    {opacity: 1;}
+  66%   {opacity: 1;}
+  100%  {opacity: 0;}
+}
+
+/* END instruct */
+/* OPTIONS */
+
+.item11 {
+  grid-area: options;
+  background-color: var(--lightgrey);
+  padding: 13px 10px 10px 10px;
+  font-family: blenny, sans-serif;
+  font-size: 22px;
+  box-shadow: 0px 0px 20px var(--black);
+}
+
+.options-menu {
+}
+
+/* END options */
+/* ANIMATION CLASSES */
+
+.is_color-pick {
+  transition-property: background-color, height;
+  transition-duration: 8s, 2s;
+}
+
+.hidden-button {
+z-index: 100;
+}
+/* END animations*/
+
+
+
+
+
+
+/* End of document */

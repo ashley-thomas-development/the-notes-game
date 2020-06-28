@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="keywords" content=""/>
+    <meta name="author" content="" />
+    <meta name="copyright" content="" />
+    <link rel="stylesheet" href="https://use.typekit.net/lae5rnl.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <title>Ashley's Simon Game</title>
+  </head>
+  <body>
+
+    <div class="ps ps-invite-pane">
+      <h2 class="invite-header">Follow the</h2>
+      <div class="ps-btn btn-invite anim_sq-glow "><h3 class="btn-text">Play !</h3></div>
+      <h2 class="invite-header">Pattern</h2>
+
+    </div>
+
+    <div class="ps ps-death-pane">
+      <div class="death-wrap">
+        <h2 class="death-header">Death is upon you...</h2>
+        <div class="ps-btn btn-death anim_sq-glow"><h3 class="btn-text">Again?</h3></div>
+      </div>
+    </div>
+
+    <!-- - - - - - MAIN GRID CONTAINER - - - - - - -->
+
+    <div class="grid-container ">
+
+      <div id="header" class="item1 game-header is_color-pick">
+        <h1 class="simon-header">The Simon Game</h1>
+      </div>
+
+      <div class="item2 msg-pane">
+        <p id="messages-pop"></p>
+      </div>
+
+      <div id="scores" class="item3 score-box is_color-pick">
+        <div class="score-fill-bar-border"></div>
+
+        <h3 class="score-header">High Score</h3>
+          <p id="player1HighScore">...</p>
+        <h3 class="score-header">Past Games</h3>
+          <p id="player1ScoreBox1">...</p>
+          <p id="player1ScoreBox2">...</p>
+          <p id="player1ScoreBox3">...</p>
+          <p id="player1ScoreBox4">...</p>
+          <p id="player1ScoreBox5">...</p>
+
+      </div>
+
+      <!-- COLOR SQUARES -->
+        <div id="sq1-box" class="item4 color-square1 anim_sq-glow anim_color-change color"></div>
+        <div id="sq2-box" class="item5 color-square2 anim_sq-glow anim_color-change color"></div>
+        <div id="sq3-box" class="item6 color-square3 anim_sq-glow anim_color-change color"></div>
+        <div id="sq4-box" class="item7 color-square4 anim_sq-glow anim_color-change color "></div>
+      <!-- END -->
+
+      <div class="item8 meter-box">
+        <div id="fill-bar" class="meter-fill-bar is_color-pick"></div>
+        <h3 class="meter-header hidden-button">Meter</h3>
+        <div class="meter-fill-bar-border"></div>
+
+        <div class="meter-timer">0</div>
+        <div class="btn-meter btn-meter-clear">Clear</div>
+        <div class="btn-meter is_clear-carry-over">Clear</div>
+        <div class="btn-meter btn-meter-replay">Replay</div>
+        <div class="btn-meter is_replay-carry-over">Replay</div>
+        <div class="btn-meter-ghosted btn-meter-ghosted-clear">Clear</div>
+        <div class="btn-meter-ghosted btn-meter-ghosted-replay">Replay</div>
+
+      </div>
+
+      <div id="level" class="item9 level-box is_color-pick">
+        <div class="level-wrap">
+          <div class="level-line1">Current</div>
+          <div class="level-num">0</div>
+          <div class="level-line2">Level</div>
+        </div>
+      </div>
+
+      <div class="item10 instruct-pane">
+        <p id="instructions-pop"></p>
+      </div>
+
+      <div id="options" class="item11 options-menu is_color-pick">Options Coming<br>Soon !</div>
+
+    </div>
+
+    <!-- - - - - - END MAIN GRID  - - - - - - -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="index.js" charset="utf-8"></script>
+  </body>
+</html>
