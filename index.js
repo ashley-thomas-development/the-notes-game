@@ -142,13 +142,41 @@ function inviteFade() {
     $(".ps-invite-pane").css("display", "none");
     $(".ps-invite-pane").removeClass("is_invite-fade");
   }, 4500);
+
 }
 
-$(".btn-invite").click(function() {
-  $(this).addClass("anim_ps-btn-click");
+
+function buttonReset() {
+  $(".btn-invite").on("click", function() {
+    var z = $(this);
+    z.off("click");
+    buttonClickMove(z);
+    aaa();
+  });
+
+}
+
+$(".btn-invite").on("click", function() {
+  var z = $(this);
+  z.off("click");
+  buttonClickMove(z);
+  aaa();
+});
+
+function buttonClickMove(z) {
+  z.css( "left", "-=5" );
+  z.css( "top", "+=5" );
   setTimeout(function() {
-    $(this).removeClass("anim_ps-btn-click");
-  }, 200);
+    z.css( "left", "+=5" );
+    z.css( "top", "-=5" );
+
+  }, 100);
+
+}
+
+
+function aaa() {
+
   inviteFade();
   soundPicker();
   setTimeout(function() {
@@ -161,8 +189,13 @@ $(".btn-invite").click(function() {
 
   setTimeout(function() {
     startGame();
+    buttonReset();
+  
+
   }, 5000);
-});
+
+
+}
 
 /* end invite screen */
 

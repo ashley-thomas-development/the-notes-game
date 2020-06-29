@@ -80,6 +80,7 @@ p {
 }
 
 .ps-btn {
+  position: relative;
   width: 200px;
   height: 133px;
   border: solid 2px var(--black);
