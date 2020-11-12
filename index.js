@@ -34,11 +34,11 @@ function soundPicker() {
 }
 
 var starTrekSounds = [
-  "http://www.trekcore.com/audio/computer/alert03.mp3",
-  "http://www.trekcore.com/audio/computer/computerbeep_4.mp3",
-  "http://www.trekcore.com/audio/computer/computerbeep_59.mp3",
-  "http://www.trekcore.com/audio/computer/computerbeep_42.mp3",
-  "http://www.trekcore.com/audio/computer/voice/autodestructsequencearmed_ep.mp3",
+  "sounds/alert03.mp3",
+  "sounds/computerbeep_4.mp3",
+  "sounds/computerbeep_59.mp3",
+  "sounds/computerbeep_42.mp3",
+  "sounds/autodestructsequencearmed_ep.mp3",
 ]
 
 var arnoldSounds = [
