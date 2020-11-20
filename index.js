@@ -324,6 +324,8 @@ function meterFill() {
   let x = (meter * 5);
   let y = "calc(" + x + "% - 20px)";
   $(".meter-fill-bar").css("height", y);
+
+  
   let z = $(".is_replay-carry-over").attr("style");
   if (meter >= 20 && z == "display: block;") {
     $(".is_replay-carry-over").addClass("is_double");
@@ -448,7 +450,7 @@ function message(number) {
   }
 
   if (currentRound > 5) {
-    if (Math.ceil(Math.random() * 10) === 1) {
+    if (Math.ceil(Math.random() * 8) === 1) {
       $("#messages-pop").text("Oh, sorry bout that ...");
       msgAnimate();
       colorChgRound();
@@ -514,7 +516,7 @@ function instructions(number) {
       break;
 
     case 4:
-      $("#instructions-pop").text("Start again ...");
+      $("#instructions-pop").text("Clear your pattern");
       instructFade();
       break;
 
