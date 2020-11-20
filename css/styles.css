@@ -67,6 +67,7 @@ p {
 }
 
 /* END layout */
+
 /* PLAY-STATE MODULE */
 
 .ps {
@@ -103,13 +104,13 @@ p {
 /* INVITATION SCREEN */
 
 .ps-invite-pane {
-  height: 50%;
-  width: 50%;
+  height: 85%;
+  width: 85%;
   background-color: #eee;
   border-radius: 30px;
   display: block;
   opacity: 1;
-  transition: 3.8s ease-in-out opacity;
+  transition: .8s ease-in opacity;
 }
 
 .invite-header {
@@ -119,15 +120,12 @@ p {
 
 .btn-invite {
   background-color: orange;
-  transition: 1s ease-in-out background-color;
+  transition: .5s ease-in-out background-color;
 }
 
 .is_invite-fade {
   opacity: 0;
-
 }
-
-
 
 /* DEATH SCREEN */
 
@@ -235,12 +233,12 @@ p {
 
 .anim_msg-pop {
   animation-name: msgFade;
-  animation-duration: 3s;
+  animation-duration: 5s;
 }
 
 @keyframes msgFade {
   0%    {opacity: 1;}
-  55%   {opacity: 1;}
+  66%   {opacity: 1;}
   100%  {opacity: 0;}
 }
 
@@ -377,11 +375,11 @@ p {
 }
 
 .anim_sq-glow:hover {
-  box-shadow: 0 0 30px #444, -10px 10px 20px var(--black);
+  /* box-shadow: 0 0 30px #444, -10px 10px 20px var(--black); */
   opacity: 0.8;
-  transition-property: opacity, box-shadow;
-  transition-duration: .3s, 2s;
-  transition-timing-function: ease-in-out;
+  transition-property: opacity;
+  transition-duration: .3s;
+  transition-timing-function: ease-in;
 }
 
 .anim_sq-pulse {
@@ -636,7 +634,7 @@ p {
 
 .anim_instruct-pop {
   animation-name: instructAnimFade;
-  animation-duration: 4s;
+  animation-duration: 2.7s;
 }
 
 @keyframes instructAnimFade {

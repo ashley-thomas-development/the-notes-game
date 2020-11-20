@@ -5,7 +5,7 @@
 let p1Pat = [];
 let sPat = [];
 let sqId = "";
-let num = "";
+let id = "";
 let player1LastScore = 0;
 let player1HighScore = 0;
 let currentLevel = 1;
@@ -19,11 +19,10 @@ let meter = 0;
 let turnLength = "";
 let counter = "";
 
-/* end list of variables and arrays */
 
 /* SOUNDS ARRAY AND PICKER */
 
-function soundPicker() {
+function soundBankPicker() {
   if (Math.ceil(Math.random() * 3) === 1) {
     player1Sounds = starTrekSounds;
   } else if (Math.ceil(Math.random() * 3) === 2) {
@@ -57,7 +56,6 @@ var marioSounds = [
   "sounds/smb_gameover.wav",
 ]
 
-/* end sounds */
 
 /* SQUARE ANIMATION AND SOUND */
 
@@ -96,12 +94,11 @@ function squareActive() {
   }
 }
 
-/* end square animation and sounds */
 
 /* PLAYER PATTERN VERIFICATION */
 
 function patCheck() {
-  if /*Completed Round*/ (sPat[sPat.length - (sPat.length - p1Pat.length) - 1] === p1Pat[p1Pat.length - 1] && p1Pat.length === sPat.length) {
+  if (sPat[sPat.length - (sPat.length - p1Pat.length) - 1] === p1Pat[p1Pat.length - 1] && p1Pat.length === sPat.length) {
     player1LastScore = p1Pat.length;
     timerStop();
     nextTurn();
@@ -116,103 +113,116 @@ function patCheck() {
   }
 }
 
-/* end player pattern verification */
 
 /* START GAME */
 
-function startGame() {
+
+
+
+/* ------ GAME STAGES ------ */
+
+/* INVITE SCREEN */
+
+$(".btn-invite").on("click", function () {
+  var playBtn = $(this);
+  playBtn.off("click");
+  playButtonClickMove(playBtn);
+  initializeGame();
+});
+
+function playButtonClickMove(playBtn) {
+  playBtn.css("left", "-=2");
+  playBtn.css("top", "+=3");
+  playBtn.css("box-shadow", "-6px 2px 15px var(--black), -6px 2px 6px 3px var(--black)")
+  setTimeout(function () {
+    playBtn.css("left", "+=2");
+    playBtn.css("top", "-=3");
+    playBtn.css("box-shadow", "-8px 5px 15px var(--black), -8px 5px 6px 3px var(--black)")
+  }, 60);
+}
+
+function invitePaneFade() {
+  $(".ps-invite-pane").addClass("is_invite-fade");
+  setTimeout(function () {
+    $(".ps-invite-pane").css("display", "none");
+    $(".ps-invite-pane").removeClass("is_invite-fade");
+  }, 2000);
+}
+
+function playButtonReset() {
+  $(".btn-invite").on("click", function () {
+    var playBtn = $(this);
+    playBtn.off("click");
+    playButtonClickMove(playBtn);
+    initializeGame();
+  });
+}
+
+function initializeGame() {
+  invitePaneFade();
+  soundBankPicker();
+  setTimeout(function () {
+    levelBox();
+  }, 1700);
+  currentLevel = 1;
+  setTimeout(function () {
+    instructions(2);
+  }, 1000);
+  setTimeout(function () {
+    beginGame();
+    playButtonReset();
+  }, 4000);
+}
+
+function beginGame() {
   p1Pat = [];
   sPat = [];
   colorGrad($(".meter-fill-bar"));
   simonsTurn();
 }
 
-/* end start game */
 
-/* ------ GAME STAGES ------ */
+/* SIMON'S TURN */
 
-/* INVITE SCREEN */
-
-function inviteFade() {
-  $(".ps-invite-pane").addClass("is_invite-fade");
-  setTimeout(function () {
-    $(".ps-invite-pane").css("display", "none");
-    $(".ps-invite-pane").removeClass("is_invite-fade");
-  }, 4500);
+function simonsTurn() {
+  let newNumber = Math.ceil(Math.random() * 4);
+  if ( player1Sounds == arnoldSounds && currentLevel < 5 && newNumber === 3 ) {
+    newNumber = 1;
+  }
+  sPat.push(newNumber);
+  sqId = "sq" + newNumber;
+  squareActive();
+  playerTurn();
 }
 
-function buttonReset() {
-  $(".btn-invite").on("click", function () {
-    var z = $(this);
-    z.off("click");
-    buttonClickMove(z);
-    aaa();
-  });
-}
-
-$(".btn-invite").on("click", function () {
-  var z = $(this);
-  z.off("click");
-  buttonClickMove(z);
-  aaa();
-});
-
-function buttonClickMove(z) {
-  z.css("left", "-=5");
-  z.css("top", "+=5");
-  setTimeout(function () {
-    z.css("left", "+=5");
-    z.css("top", "-=5");
-  }, 100);
-}
-
-
-function aaa() {
-  inviteFade();
-  soundPicker();
-  setTimeout(function () {
-    levelBox();
-  }, 4200);
-  currentLevel = 1;
-  setTimeout(function () {
-    instructions(2);
-  }, 4000);
-
-  setTimeout(function () {
-    startGame();
-    buttonReset();
-  }, 5000);
-}
-
-/* end invite screen */
 
 /* PLAYER'S TURN */
 
 function playerTurn() {
   timerStart();
   $(".color-square1").on("click", function () {
-    num = 1;
-    numAssignAction(num);
+    id = 1;
+    squareClicked(id);
   });
 
   $(".color-square2").on("click", function () {
-    num = 2;
-    numAssignAction(num);
+    id = 2;
+    squareClicked(id);
   });
 
   $(".color-square3").on("click", function () {
-    num = 3;
-    numAssignAction(num);
+    id = 3;
+    squareClicked(id);
   });
 
   $(".color-square4").on("click", function () {
-    num = 4;
-    numAssignAction(num);
+    id = 4;
+    squareClicked(id);
   });
 
-  function numAssignAction(num) {
-    sqId = ("sq" + num);
-    p1Pat.push(num);
+  function squareClicked(id) {
+    sqId = ("sq" + id);
+    p1Pat.push(id);
     squareActive();
     patCheck();
   }
@@ -226,7 +236,54 @@ function playerTurnEnd() {
   $(".color-square4").off("click");
 }
 
-/* end player's turn
+
+/* NEXT TURN */
+
+function nextTurn() {
+  $("#instructions-pop").removeClass("anim_instruct-pop");
+  playerTurnEnd();
+  currentLevel++;
+  levelBox();
+  currentRound = 1;
+  instructions(1);
+  setTimeout(function () {
+    message(1);
+  }, 2500);
+  setTimeout(function () {
+    simonsTurn();
+  }, 3000 + (Math.ceil(Math.random() * 4) * 1000));
+}
+
+/* GAME OVER */
+
+function gameOver() {
+  timerStop();
+  playerTurnEnd();
+  carryOverLimitClick();
+  deathScreen();
+  highScore();
+  scorePush();
+  currentRound = 1;
+  p1Pat = [];
+  sPat = [];
+  levelBox();
+}
+
+
+/* DEATH SCREEN */
+
+$(".btn-death").click(function () {
+  $(".ps-death-pane").css("display", "none");
+  $(".ps-invite-pane").css("display", "block");
+  $(".ps-death-pane").removeClass("anim_death-pane");
+});
+
+function deathScreen() {
+  let gameOver = new Audio(player1Sounds[4]);
+  gameOver.play();
+  $(".ps-death-pane").css("display", "block");
+  $(".ps-death-pane").addClass("anim_death-pane");
+}
 
 /* TIMER, METER, AND LIMIT BUTTONS */
 
@@ -329,72 +386,7 @@ function carryOverLimitClick() {
   $(".meter-fill-bar").css("height", "0");
 }
 
-/* end meter */
 
-/* NEXT TURN */
-
-function nextTurn() {
-  playerTurnEnd();
-  currentLevel++;
-  levelBox();
-  currentRound = 1;
-  instructions(1);
-  setTimeout(function () {
-    message(1);
-  }, 1000);
-  setTimeout(function () {
-    simonsTurn();
-  }, (Math.ceil(Math.random() * 8) * 1000));
-}
-
-/* end next turn */
-
-/* SIMON'S TURN */
-
-function simonsTurn() {
-  let newNumber = Math.ceil(Math.random() * 4);
-  sPat.push(newNumber);
-  console.log(sPat);
-  sqId = "sq" + newNumber;
-  squareActive();
-  playerTurn();
-}
-
-/* end simon's turn */
-
-/* GAME OVER */
-
-function gameOver() {
-  timerStop();
-  playerTurnEnd();
-  carryOverLimitClick();
-  deathScreen();
-  highScore();
-  scorePush();
-  currentRound = 1;
-  p1Pat = [];
-  sPat = [];
-  levelBox();
-}
-
-/* end game over */
-
-/* DEATH SCREEN */
-
-$(".btn-death").click(function () {
-  $(".ps-death-pane").css("display", "none");
-  $(".ps-invite-pane").css("display", "block");
-  $(".ps-death-pane").removeClass("anim_death-pane");
-});
-
-function deathScreen() {
-  let gameOver = new Audio(player1Sounds[4]);
-  gameOver.play();
-  $(".ps-death-pane").css("display", "block");
-  $(".ps-death-pane").addClass("anim_death-pane");
-}
-
-/* end death screen */
 
 /* ------ EVENTS AND VARIABLES ------ */
 
@@ -442,7 +434,6 @@ function pastScores() {
   }
 }
 
-/* end level, box scores, score push */
 
 /* MESSAGE PANE */
 
@@ -486,7 +477,21 @@ function message(number) {
 
 }
 
-/* end messages */
+/* ONSCREEN TEXT ANIMATIONS */
+
+function msgAnimate() {
+  $("#messages-pop").addClass("anim_msg-pop");
+  $("#messages-pop").on("animationend", function () {
+    $(this).removeClass("anim_msg-pop");
+  });
+}
+
+function instructFade() {
+  $("#instructions-pop").addClass("anim_instruct-pop");
+  $("#instructions-pop").on("animationend", function () {
+    $(this).removeClass("anim_instruct-pop");
+  });
+}
 
 /* INSTRUCTION PANE */
 
@@ -522,7 +527,6 @@ function instructions(number) {
 
 }
 
-/* end instructions */
 
 $(".btn-meter-clear").mouseover(function () {
   instructions(4);
@@ -551,7 +555,6 @@ function hardMode() {
   }
 }
 
-/* end challenge conditions
 
 /* RANDOM COLOR GENERATOR */
 
@@ -563,7 +566,6 @@ function colorGen() {
   return colorValue;
 }
 
-/* end random color generator */
 
 /* COLOR CHANGING FUNCTIONS AND ASSIGNMENTS */
 
@@ -572,46 +574,45 @@ function colorChgRound() {
 }
 
 $("#scores").on("dblclick", function () {
-  let temp = $(this);
-  colorGrad(temp);
+  let tempColor = $(this);
+  colorGrad(tempColor);
 });
 
 $("#options").on("dblclick", function () {
-  let temp = $(this);
-  colorGrad(temp);
+  let tempColor = $(this);
+  colorGrad(tempColor);
 });
 
 $("#level").on("dblclick", function () {
-  let temp = $(this);
-  colorGrad(temp);
+  let tempColor = $(this);
+  colorGrad(tempColor);
 });
 
 $("#fill-bar").on("dblclick", function () {
-  let temp = $(this);
-  colorGrad(temp);
+  let tempColor = $(this);
+  colorGrad(tempColor);
 });
 
 $("#header").on("dblclick", function () {
-  let temp = $(this);
-  colorGrad(temp);
+  let tempColor = $(this);
+  colorGrad(tempColor);
 });
 
-function colorGrad(temp) {
-  temp.css("backgroundColor", colorGen);
-  let n = setInterval(function () {
-    temp.css("backgroundColor", colorGen);
+function colorGrad(tempColor) {
+  tempColor.css("backgroundColor", colorGen);
+  let colorShift = setInterval(function () {
+    tempColor.css("backgroundColor", colorGen);
   }, 8000);
 
-  temp.on("click", function () {
-    clearInterval(n);
+  tempColor.on("click", function () {
+    clearInterval(colorShift);
     let x = event.currentTarget;
     let y = getComputedStyle(x, null).getPropertyValue("background-color");
     console.log(y);
-    temp.css("backgroundColor", y);
+    tempColor.css("backgroundColor", y);
   });
 }
 
-/* end color changing functions and assignments */
 
 /* COLOR RESET */
 
@@ -627,24 +628,6 @@ $(".hidden-button").click(function () {
   $(".item11").css("backgroundColor", "var(--lightgrey)");
 });
 
-/* end color reset */
 
-/* ONSCREEN TEXT ANIMATIONS */
 
-function msgAnimate() {
-  $("#messages-pop").addClass("anim_msg-pop");
-  $("#messages-pop").on("animationend", function () {
-    $(this).removeClass("anim_msg-pop");
-  });
-}
 
-function instructFade() {
-  $("#instructions-pop").addClass("anim_instruct-pop");
-  $("#instructions-pop").on("animationend", function () {
-    $(this).removeClass("anim_instruct-pop");
-  });
-}
-
-/* end onscreen text animations */
-
-/* end OF DOCUMENT */
