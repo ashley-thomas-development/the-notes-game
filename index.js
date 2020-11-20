@@ -95,29 +95,6 @@ function squareActive() {
 }
 
 
-/* PLAYER PATTERN VERIFICATION */
-
-function patCheck() {
-  if (sPat[sPat.length - (sPat.length - p1Pat.length) - 1] === p1Pat[p1Pat.length - 1] && p1Pat.length === sPat.length) {
-    player1LastScore = p1Pat.length;
-    timerStop();
-    nextTurn();
-    meterFill();
-  } else if (sPat[sPat.length - (sPat.length - p1Pat.length) - 1] === p1Pat[p1Pat.length - 1]) {
-    currentRound++;
-    message();
-    hardMode();
-  } else {
-    currentAudio.pause();
-    gameOver();
-  }
-}
-
-
-/* START GAME */
-
-
-
 
 /* ------ GAME STAGES ------ */
 
@@ -158,6 +135,7 @@ function playButtonReset() {
   });
 }
 
+/* START GAME */
 function initializeGame() {
   invitePaneFade();
   soundBankPicker();
@@ -186,7 +164,7 @@ function beginGame() {
 
 function simonsTurn() {
   let newNumber = Math.ceil(Math.random() * 4);
-  if ( player1Sounds == arnoldSounds && currentLevel < 5 && newNumber === 3 ) {
+  if (player1Sounds == arnoldSounds && currentLevel < 5 && newNumber === 3) {
     newNumber = 1;
   }
   sPat.push(newNumber);
@@ -228,12 +206,23 @@ function playerTurn() {
   }
 }
 
-function playerTurnEnd() {
-  p1Pat = [];
-  $(".color-square1").off("click");
-  $(".color-square2").off("click");
-  $(".color-square3").off("click");
-  $(".color-square4").off("click");
+
+/* PLAYER PATTERN VERIFICATION */
+
+function patCheck() {
+  if (sPat[sPat.length - (sPat.length - p1Pat.length) - 1] === p1Pat[p1Pat.length - 1] && p1Pat.length === sPat.length) {
+    player1LastScore = p1Pat.length;
+    timerStop();
+    nextTurn();
+    meterFill();
+  } else if (sPat[sPat.length - (sPat.length - p1Pat.length) - 1] === p1Pat[p1Pat.length - 1]) {
+    currentRound++;
+    message();
+    hardMode();
+  } else {
+    currentAudio.pause();
+    gameOver();
+  }
 }
 
 
@@ -254,12 +243,22 @@ function nextTurn() {
   }, 3000 + (Math.ceil(Math.random() * 4) * 1000));
 }
 
+
+function playerTurnEnd() {
+  p1Pat = [];
+  $(".color-square1").off("click");
+  $(".color-square2").off("click");
+  $(".color-square3").off("click");
+  $(".color-square4").off("click");
+}
+
 /* GAME OVER */
 
 function gameOver() {
   timerStop();
   playerTurnEnd();
   carryOverLimitClick();
+  carryOverState()
   deathScreen();
   highScore();
   scorePush();
@@ -287,6 +286,61 @@ function deathScreen() {
 
 /* TIMER, METER, AND LIMIT BUTTONS */
 
+function timerStart() {
+  time = 0;
+  counter = setInterval(function () {
+    time++;
+    $(".meter-timer").text(time);
+  }, 1000);
+}
+
+function timerStop() {
+  turnLength = time;
+  clearInterval(counter);
+  $(".meter-timer").text("0");
+}
+
+/* METER FILL*/
+
+let clearBtn = $(".meter-btn-clear");
+let replayBtn = $(".meter-btn-replay");
+let clearCO = $(".meter-btn-clear-co");
+let replayCO = $(".meter-btn-replay-co");
+
+function meterFill() {
+  if (turnLength < currentLevel) {
+    meter = meter + ((currentLevel - turnLength) - 1);
+  }
+  let x = (meter * 5);
+  let y = "calc(" + x + "% - 20px)";
+  $(".meter-fill-bar").css("height", y);
+
+  let displayCheck = replayCO.attr("style");
+
+  if (meter >= 20 && displayCheck == "display: block;") {
+    replayCO.removeClass("is_active");
+    clearCO.removeClass("is_active");
+    clearBtn.css("display", "block");
+    replayBtn.css("display", "block");
+    clearBtn.removeClass("is_active");
+    replayBtn.removeClass("is_active");
+    replayCO.addClass("is_double");
+    clearCO.addClass("is_double");
+    replayCO.css("bottom", "90px");
+    replayCO.css("right", "-8px");
+    clearCO.css("bottom", "9px");
+    clearCO.css("right", "-8px");
+  } else if (meter >= 20) {
+    clearBtn.css("display", "block");
+    replayBtn.css("display", "block");
+    clearBtn.addClass("is_active");
+    replayBtn.addClass("is_active");
+    instructions(3);
+  }
+}
+
+/* LIMIT BREAK - REPLAY */
+
 function replay() {
   let position = 0;
 
@@ -303,89 +357,74 @@ function replay() {
   }
 }
 
-function timerStart() {
+clearBtn.click(function () {
+  currentGameLimitClick();
+  p1Pat = [];
   time = 0;
-  counter = setInterval(function () {
-    time++;
-    $(".meter-timer").text(time);
-  }, 1000);
-}
+  instructions(4);
+});
 
-function timerStop() {
-  turnLength = time;
-  clearInterval(counter);
-  $(".meter-timer").text("0");
-}
+replayBtn.click(function () {
+  currentGameLimitClick();
+  replay();
+  instructions(5);
+});
 
-function meterFill() {
-  if (turnLength < currentLevel) {
-    meter = meter + ((currentLevel - turnLength) - 1);
-  }
-  let x = (meter * 5);
-  let y = "calc(" + x + "% - 20px)";
-  $(".meter-fill-bar").css("height", y);
+clearCO.click(function () {
+  clearCO.css("display", "none");
+  replayCO.css("display", "none");
+  clearCO.removeClass("is_active");
+  replayCO.removeClass("is_active");
+  clearBtn.addClass("is_active");
+  replayBtn.addClass("is_active");
+  clearCO.css("bottom", "12px");
+  clearCO.css("right", "0");
+  replayCO.css("bottom", "93px");
+  replayCO.css("right", "0");
+  p1Pat = [];
+  time = 0;
+  instructions(4);
+});
 
-  
-  let z = $(".is_replay-carry-over").attr("style");
-  if (meter >= 20 && z == "display: block;") {
-    $(".is_replay-carry-over").addClass("is_double");
-    $(".is_clear-carry-over").addClass("is_double");
-  }
-  if (meter >= 20) {
-    $(".btn-meter-clear").css("display", "block");
-    $(".btn-meter-replay").css("display", "block");
-    instructions(3);
-  }
-}
+replayCO.click(function () {
+  replayCO.css("display", "none");
+  clearCO.css("display", "none");
+  replayCO.removeClass("is_double");
+  clearCO.removeClass("is_double");
+  clearBtn.addClass("is_active");
+  replayBtn.addClass("is_active");
+  replayCO.css("bottom", "93px");
+  replayCO.css("right", "0");
+  clearCO.css("bottom", "12px");
+  clearCO.css("right", "0");
+  replay();
+  instructions(5);
+});
 
 function currentGameLimitClick() {
   meter = 0;
-  $(".btn-meter").css("display", "none");
+  $(".meter-btn").css("display", "none");
   $(".meter-fill-bar").css("height", "0");
 }
 
-$(".btn-meter-clear").click(function () {
-  currentGameLimitClick();
-  p1Pat = [];
-  time = 0;
-  instructions(4);
-});
-
-$(".btn-meter-replay").click(function () {
-  currentGameLimitClick();
-  replay();
-  instructions(5);
-});
-
-$(".is_clear-carry-over").click(function () {
-  $(this).css("display", "none");
-  $(".is_replay-carry-over").css("display", "none");
-  $(this).removeClass("is_double");
-  $(".replay-carry-over").removeClass("is_double");
-  p1Pat = [];
-  time = 0;
-  instructions(4);
-});
-
-$(".is_replay-carry-over").click(function () {
-  $(this).css("display", "none");
-  $(".is_clear-carry-over").css("display", "none");
-  $(this).removeClass("is_double");
-  $(".is_clear-carry-over").removeClass("is_double");
-  replay();
-  instructions(5);
-});
-
 function carryOverLimitClick() {
-  let x = $(".btn-meter-clear").attr("style");
+  let x = clearBtn.attr("style");
   if (x == "display: block;") {
-    $(".btn-meter-clear").css("display", "none");
-    $(".is_clear-carry-over").css("display", "block");
-    $(".btn-meter-replay").css("display", "none");
-    $(".is_replay-carry-over").css("display", "block");
+    clearBtn.css("display", "none");
+    clearCO.css("display", "block");
+    replayBtn.css("display", "none");
+    replayCO.css("display", "block");
   }
   meter = 0;
   $(".meter-fill-bar").css("height", "0");
+}
+
+function carryOverState() {
+  let displayCheck = replayCO.attr("style");
+  if (displayCheck == "display: block;" && meter < 20) {
+    clearCO.addClass("is_active");
+    replayCO.addClass("is_active");
+  }
 }
 
 
@@ -530,16 +569,16 @@ function instructions(number) {
 }
 
 
-$(".btn-meter-clear").mouseover(function () {
+clearBtn.mouseover(function () {
   instructions(4);
 });
-$(".btn-meter-replay").mouseover(function () {
+replayBtn.mouseover(function () {
   instructions(5);
 });
-$(".is_clear-carry-over").mouseover(function () {
+clearCO.mouseover(function () {
   instructions(4);
 });
-$(".is_replay-carry-over").mouseover(function () {
+replayCO.mouseover(function () {
   instructions(5);
 });
 
@@ -629,7 +668,3 @@ $(".hidden-button").click(function () {
   $(".item9").css("backgroundColor", "var(--lightgrey)");
   $(".item11").css("backgroundColor", "var(--lightgrey)");
 });
-
-
-
-

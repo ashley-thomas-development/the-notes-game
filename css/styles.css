@@ -467,7 +467,7 @@ p {
 
 }
 
-.btn-meter {
+.meter-btn {
   z-index: -11;
   width: 100px;
   height: 66px;
@@ -483,7 +483,7 @@ p {
   transition: 1s opacity;
 }
 
-.btn-meter-ghosted {
+.meter-btn-ghosted {
   background-color: var(--lightgrey);
   z-index: -12;
   width: 100px;
@@ -502,24 +502,24 @@ p {
   padding: 10px;
 }
 
-.btn-meter-ghosted-clear {
+.ghosted-clear {
   bottom: 93px;
 }
 
-.btn-meter-ghosted-replay {
+.ghosted-replay {
   bottom: 12px;
 }
 
 
-.btn-meter-clear {
+.meter-btn-clear {
   background-color: var(--blue);
 }
 
-.btn-meter-replay {
+.meter-btn-replay {
   background-color: var(--blue);
 }
 
-.is_clear-carry-over {
+.meter-btn-clear-co {
   background-color: var(--blue);
   display: none;
   margin: 0px auto 15px;
@@ -533,7 +533,7 @@ p {
   border: solid 2px var(--darkgrey);
 }
 
-.is_replay-carry-over {
+.meter-btn-replay-co {
   background-color: var(--blue);
   display: none;
   margin: 0px auto 15px;
@@ -543,16 +543,31 @@ p {
   float: left;
   bottom: 12px;
   z-index: 0;
+  transition: 2s background-color;
   border: solid 2px var(--darkgrey);
 }
 
-.is_double {
-  animation: 1.8s ease-in-out smallPulse infinite;
+.is_active {
+  animation: 4s ease-in-out slowPulse infinite;
 }
 
-@keyframes smallPulse {
+.is_double {
+  animation: 2s ease-in-out fastPulse infinite;
+}
+
+@keyframes slowPulse {
   0%      {background-color: var(--blue) }
+  35%      {background-color: var(--blue) }
   50%     {background-color: var(--yellow)}
+  65%      {background-color: var(--blue) }
+  100%    {background-color: var(--blue) }
+}
+
+@keyframes fastPulse {
+  0%      {background-color: var(--blue) }
+  35%      {background-color: var(--blue) }
+  50%     {background-color: var(--yellow)}
+  65%      {background-color: var(--blue) }
   100%    {background-color: var(--blue) }
 }
 
