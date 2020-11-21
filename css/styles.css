@@ -13,11 +13,16 @@
 }
 
 * {
-  user-select: none; /* supported by Chrome and Opera */
-   -webkit-user-select: none; /* Safari */
-   -khtml-user-select: none; /* Konqueror HTML */
-   -moz-user-select: none; /* Firefox */
-   -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none;
+  /* supported by Chrome and Opera */
+  -webkit-user-select: none;
+  /* Safari */
+  -khtml-user-select: none;
+  /* Konqueror HTML */
+  -moz-user-select: none;
+  /* Firefox */
+  -ms-user-select: none;
+  /* Internet Explorer/Edge */
   box-sizing: border-box;
 }
 
@@ -27,7 +32,12 @@ body {
   text-align: center;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   margin: 0;
   font-family: blenny, sans-serif;
 }
@@ -44,9 +54,10 @@ p {
 /* LAYOUT */
 
 .grid-container {
+  position: relative;
   display: grid;
   grid-template-columns: 150px auto 200px 200px auto 150px;
-  grid-template-rows: 140px 50px 150px 150px 150px ;
+  grid-template-rows: 140px 50px 150px 150px 150px;
   grid-gap: 1rem;
   background-color: #181818;
   border-radius: 10px;
@@ -62,7 +73,7 @@ p {
 }
 
 /* LAYOUT - UNIVERSAL GRID ITEMS */
-.grid-container > div {
+.grid-container>div {
   border-radius: 10px;
 }
 
@@ -87,7 +98,7 @@ p {
   border: solid 2px var(--black);
   background-color: orange;
   background-image: radial-gradient(rgba(0, 0, 0, 0), rgba(255, 255, 255, .1));
-  border-radius: 45px!important;
+  border-radius: 45px !important;
   box-shadow: -8px 5px 15px var(--black), -8px 5px 6px 3px var(--black);
   padding: 10px;
   opacity: 0.6;
@@ -141,8 +152,15 @@ p {
 }
 
 @keyframes deathPaneAnim {
-  0%    {width: 0%; height: 0%;}
-  100%  {width: 100%; height: 100%;}
+  0% {
+    width: 0%;
+    height: 0%;
+  }
+
+  100% {
+    width: 100%;
+    height: 100%;
+  }
 }
 
 .death-wrap {
@@ -164,9 +182,17 @@ p {
 }
 
 @keyframes deathFadeIn {
-  0%    {opacity: 0;}
-  30%   {opacity: 0;}
-  100%  {opacity: 1;}
+  0% {
+    opacity: 0;
+  }
+
+  30% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
 }
 
 .btn-death {
@@ -177,9 +203,17 @@ p {
 }
 
 @keyframes deathBtnFadeIn {
-  0%    {opacity: 0;}
-  45%   {opacity: 0;}
-  100%  {opacity: .6}
+  0% {
+    opacity: 0;
+  }
+
+  45% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: .6
+  }
 }
 
 /* END playstate module*/
@@ -193,8 +227,7 @@ p {
 
 }
 
-.game-header {
-}
+.game-header {}
 
 .simon-header {
   letter-spacing: 1px;
@@ -205,11 +238,11 @@ p {
   background-color: inherit;
   -webkit-text-stroke: 1px black;
   text-shadow:
-         5px 4px 0 black,
-       -1px -1px 0 black,
-        1px -1px 0 black,
-        -1px 1px 0 black,
-         1px 1px 0 black;
+    5px 4px 0 black,
+    -1px -1px 0 black,
+    1px -1px 0 black,
+    -1px 1px 0 black,
+    1px 1px 0 black;
 }
 
 /* END header*/
@@ -219,8 +252,7 @@ p {
   grid-area: message;
 }
 
-.msg-pane {
-}
+.msg-pane {}
 
 #messages-pop {
   padding: 0;
@@ -237,9 +269,17 @@ p {
 }
 
 @keyframes msgFade {
-  0%    {opacity: 1;}
-  66%   {opacity: 1;}
-  100%  {opacity: 0;}
+  0% {
+    opacity: 1;
+  }
+
+  66% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
 }
 
 /* END messages */
@@ -253,8 +293,7 @@ p {
   z-index: 0;
 }
 
-.score-box {
-}
+.score-box {}
 
 .score-header {
   font-size: 20px;
@@ -266,7 +305,7 @@ p {
 
 }
 
-.score-box > p {
+.score-box>p {
   margin-top: 11px;
   z-index: 98;
 
@@ -281,11 +320,11 @@ p {
   color: var(--blue);
   -webkit-text-stroke: 1px black;
   text-shadow:
-         2px 1px 0 black,
-       -1px -1px 0 black,
-        1px -1px 0 black,
-        -1px 1px 0 black,
-         1px 1px 0 black;
+    2px 1px 0 black,
+    -1px -1px 0 black,
+    1px -1px 0 black,
+    -1px 1px 0 black,
+    1px 1px 0 black;
 
 }
 
@@ -316,7 +355,7 @@ p {
   background-image: radial-gradient(rgba(0, 0, 0, 0), rgba(255, 255, 255, .1));
   width: 90%;
   height: 90%;
-  border-radius: 45px!important;
+  border-radius: 45px !important;
   box-shadow: -8px 5px 15px var(--black), -8px 5px 6px 3px var(--black);
   padding: 10px;
   opacity: 0.6;
@@ -333,7 +372,7 @@ p {
   background-image: radial-gradient(rgba(0, 0, 0, 0), rgba(255, 255, 255, .1));
   width: 90%;
   height: 90%;
-  border-radius: 45px!important;
+  border-radius: 45px !important;
   box-shadow: -8px 5px 15px var(--black), -8px 5px 6px 3px var(--black);
   padding: 10px;
   opacity: 0.6;
@@ -350,7 +389,7 @@ p {
   background-image: radial-gradient(rgba(0, 0, 0, 0), rgba(255, 255, 255, .1));
   width: 90%;
   height: 90%;
-  border-radius: 45px!important;
+  border-radius: 45px !important;
   box-shadow: -8px 5px 15px var(--black), -8px 5px 6px 3px var(--black);
   padding: 10px;
   opacity: 0.6;
@@ -365,7 +404,7 @@ p {
   border: solid 2px var(--black);
   width: 90%;
   height: 90%;
-  border-radius: 45px!important;
+  border-radius: 45px !important;
   padding: 10px;
   opacity: 0.6;
   box-shadow: -8px 5px 15px var(--black), -8px 5px 6px 3px var(--black);
@@ -389,15 +428,28 @@ p {
 }
 
 @keyframes sqAnimPulse {
-  0%    {width: 90%; height: 90%;}
-  50%   {width: 96%; height: 96%;}
-  100%  {width: 90%; height: 90%;}
+  0% {
+    width: 90%;
+    height: 90%;
+  }
+
+  50% {
+    width: 96%;
+    height: 96%;
+  }
+
+  100% {
+    width: 90%;
+    height: 90%;
+  }
 }
 
-.anim_color-change { /* Animation class for jQuery grab */
+.anim_color-change {
+  /* Animation class for jQuery grab */
 }
 
-.shift { /* Animation class for jQuery grab */
+.shift {
+  /* Animation class for jQuery grab */
 }
 
 /* END color squares */
@@ -459,11 +511,11 @@ p {
   color: var(--pink);
   -webkit-text-stroke: 1px black;
   text-shadow:
-         3px 2px 0 black,
-       -1px -1px 0 black,
-        1px -1px 0 black,
-        -1px 1px 0 black,
-         1px 1px 0 black;
+    3px 2px 0 black,
+    -1px -1px 0 black,
+    1px -1px 0 black,
+    -1px 1px 0 black,
+    1px 1px 0 black;
 
 }
 
@@ -503,11 +555,11 @@ p {
 }
 
 .ghosted-clear {
-  bottom: 93px;
+  bottom: 95px;
 }
 
 .ghosted-replay {
-  bottom: 12px;
+  bottom: 14px;
 }
 
 
@@ -525,9 +577,9 @@ p {
   margin: 0px auto 15px;
   position: absolute;
   left: 0;
-  right: 0;
+  right: -8px;
   float: left;
-  bottom: 93px;
+  bottom: 90px;
   z-index: 0;
   transition: 2s background-color;
   border: solid 2px var(--darkgrey);
@@ -539,9 +591,9 @@ p {
   margin: 0px auto 15px;
   position: absolute;
   left: 0;
-  right: 0;
+  right: -8px;
   float: left;
-  bottom: 12px;
+  bottom: 9px;
   z-index: 0;
   transition: 2s background-color;
   border: solid 2px var(--darkgrey);
@@ -556,19 +608,47 @@ p {
 }
 
 @keyframes slowPulse {
-  0%      {background-color: var(--blue) }
-  35%      {background-color: var(--blue) }
-  50%     {background-color: var(--yellow)}
-  65%      {background-color: var(--blue) }
-  100%    {background-color: var(--blue) }
+  0% {
+    background-color: var(--blue)
+  }
+
+  35% {
+    background-color: var(--blue)
+  }
+
+  50% {
+    background-color: var(--yellow)
+  }
+
+  65% {
+    background-color: var(--blue)
+  }
+
+  100% {
+    background-color: var(--blue)
+  }
 }
 
 @keyframes fastPulse {
-  0%      {background-color: var(--blue) }
-  35%      {background-color: var(--blue) }
-  50%     {background-color: var(--yellow)}
-  65%      {background-color: var(--blue) }
-  100%    {background-color: var(--blue) }
+  0% {
+    background-color: var(--blue)
+  }
+
+  35% {
+    background-color: var(--blue)
+  }
+
+  50% {
+    background-color: var(--yellow)
+  }
+
+  65% {
+    background-color: var(--blue)
+  }
+
+  100% {
+    background-color: var(--blue)
+  }
 }
 
 /* END meter*/
@@ -580,8 +660,7 @@ p {
   box-shadow: 0px 0px 20px var(--black);
 }
 
-.level-box {
-}
+.level-box {}
 
 .level-wrap {
   background-color: inherit;
@@ -593,7 +672,8 @@ p {
   border-radius: 10px;
 }
 
-.level-line1 { /*For readability */
+.level-line1 {
+  /*For readability */
 }
 
 .level-num {
@@ -602,11 +682,11 @@ p {
   color: var(--pink);
   -webkit-text-stroke: 1px black;
   text-shadow:
-         3px 2px 0 black,
-       -1px -1px 0 black,
-        1px -1px 0 black,
-        -1px 1px 0 black,
-         1px 1px 0 black;
+    3px 2px 0 black,
+    -1px -1px 0 black,
+    1px -1px 0 black,
+    -1px 1px 0 black,
+    1px 1px 0 black;
 
 }
 
@@ -619,13 +699,26 @@ p {
 
 
 @keyframes spin {
-  0%   {opacity: 1;}
-  43%  {opacity: 0;}
-  57%  {opacity: 0;}
-  100% {transform: rotate(360deg); opacity: 1;}
+  0% {
+    opacity: 1;
+  }
+
+  43% {
+    opacity: 0;
+  }
+
+  57% {
+    opacity: 0;
+  }
+
+  100% {
+    transform: rotate(360deg);
+    opacity: 1;
+  }
 }
 
-.level-line2 { /*For readability */
+.level-line2 {
+  /*For readability */
 }
 
 /* END level*/
@@ -653,9 +746,17 @@ p {
 }
 
 @keyframes instructAnimFade {
-  0%    {opacity: 1;}
-  66%   {opacity: 1;}
-  100%  {opacity: 0;}
+  0% {
+    opacity: 1;
+  }
+
+  66% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
 }
 
 /* END instruct */
@@ -681,9 +782,20 @@ p {
   transition-duration: 8s, 2s;
 }
 
-.hidden-button {
-z-index: 100;
+.color-reset-btn {
+  z-index: 100;
+  width: 100px;
+  height: 100px;
+  background-color: green;
+  position: absolute;
+  bottom: 57px;
+  right: 57px;
+  font-family: blenny, sans-serif;
+  font-size: 24px;
+
+  
 }
+
 /* END animations*/
 
 

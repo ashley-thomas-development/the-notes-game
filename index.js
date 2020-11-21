@@ -177,6 +177,7 @@ function simonsTurn() {
 /* PLAYER'S TURN */
 
 function playerTurn() {
+  limitListenersOn();
   timerStart();
   $(".color-square1").on("click", function () {
     id = 1;
@@ -250,6 +251,7 @@ function playerTurnEnd() {
   $(".color-square2").off("click");
   $(".color-square3").off("click");
   $(".color-square4").off("click");
+  $(".meter-btn").off("click");
 }
 
 /* GAME OVER */
@@ -257,8 +259,8 @@ function playerTurnEnd() {
 function gameOver() {
   timerStop();
   playerTurnEnd();
-  carryOverLimitClick();
-  carryOverState()
+  // carryOverLimitClick();
+  carryOverState();
   deathScreen();
   highScore();
   scorePush();
@@ -284,7 +286,7 @@ function deathScreen() {
   $(".ps-death-pane").addClass("anim_death-pane");
 }
 
-/* TIMER, METER, AND LIMIT BUTTONS */
+/* TIMER */
 
 function timerStart() {
   time = 0;
@@ -300,12 +302,37 @@ function timerStop() {
   $(".meter-timer").text("0");
 }
 
-/* METER FILL*/
+/* METER AND LIMITBREAKS */
 
 let clearBtn = $(".meter-btn-clear");
 let replayBtn = $(".meter-btn-replay");
 let clearCO = $(".meter-btn-clear-co");
 let replayCO = $(".meter-btn-replay-co");
+
+function currentGameLimitClick() {
+  $(".meter-btn").css("display", "none");
+  meterReset();
+}
+
+function carryOverClick() {
+  clearCO.css("display", "none");
+  replayCO.css("display", "none");
+  clearBtn.addClass("is_active");
+  replayBtn.addClass("is_active");
+  meter = 0;
+}
+
+function limitOn() {
+  clearBtn.css("display", "block");
+  replayBtn.css("display", "block");
+  clearBtn.addClass("is_active");
+  replayBtn.addClass("is_active");
+}
+
+function meterReset() {
+  meter = 0;
+  $(".meter-fill-bar").css("height", "0");
+}
 
 function meterFill() {
   if (turnLength < currentLevel) {
@@ -315,26 +342,15 @@ function meterFill() {
   let y = "calc(" + x + "% - 20px)";
   $(".meter-fill-bar").css("height", y);
 
-  let displayCheck = replayCO.attr("style");
+  let displayCheck = replayBtn.attr("style");
 
   if (meter >= 20 && displayCheck == "display: block;") {
-    replayCO.removeClass("is_active");
-    clearCO.removeClass("is_active");
-    clearBtn.css("display", "block");
-    replayBtn.css("display", "block");
+    clearCO.css("display", "block");
+    replayCO.css("display", "block");
     clearBtn.removeClass("is_active");
     replayBtn.removeClass("is_active");
-    replayCO.addClass("is_double");
-    clearCO.addClass("is_double");
-    replayCO.css("bottom", "90px");
-    replayCO.css("right", "-8px");
-    clearCO.css("bottom", "9px");
-    clearCO.css("right", "-8px");
   } else if (meter >= 20) {
-    clearBtn.css("display", "block");
-    replayBtn.css("display", "block");
-    clearBtn.addClass("is_active");
-    replayBtn.addClass("is_active");
+    limitOn();
     instructions(3);
   }
 }
@@ -357,6 +373,9 @@ function replay() {
   }
 }
 
+/* LIMIT BREAK - LISTENERS */
+function limitListenersOn() {
+
 clearBtn.click(function () {
   currentGameLimitClick();
   p1Pat = [];
@@ -371,62 +390,32 @@ replayBtn.click(function () {
 });
 
 clearCO.click(function () {
-  clearCO.css("display", "none");
-  replayCO.css("display", "none");
-  clearCO.removeClass("is_active");
-  replayCO.removeClass("is_active");
-  clearBtn.addClass("is_active");
-  replayBtn.addClass("is_active");
-  clearCO.css("bottom", "12px");
-  clearCO.css("right", "0");
-  replayCO.css("bottom", "93px");
-  replayCO.css("right", "0");
+  carryOverClick();
   p1Pat = [];
   time = 0;
   instructions(4);
 });
 
 replayCO.click(function () {
-  replayCO.css("display", "none");
-  clearCO.css("display", "none");
-  replayCO.removeClass("is_double");
-  clearCO.removeClass("is_double");
-  clearBtn.addClass("is_active");
-  replayBtn.addClass("is_active");
-  replayCO.css("bottom", "93px");
-  replayCO.css("right", "0");
-  clearCO.css("bottom", "12px");
-  clearCO.css("right", "0");
+  carryOverClick();
   replay();
   instructions(5);
 });
 
-function currentGameLimitClick() {
-  meter = 0;
-  $(".meter-btn").css("display", "none");
-  $(".meter-fill-bar").css("height", "0");
 }
 
-function carryOverLimitClick() {
-  let x = clearBtn.attr("style");
-  if (x == "display: block;") {
-    clearBtn.css("display", "none");
-    clearCO.css("display", "block");
-    replayBtn.css("display", "none");
-    replayCO.css("display", "block");
-  }
-  meter = 0;
-  $(".meter-fill-bar").css("height", "0");
-}
+/* CARRY-OVER LIMIT CHECK */
 
 function carryOverState() {
-  let displayCheck = replayCO.attr("style");
-  if (displayCheck == "display: block;" && meter < 20) {
-    clearCO.addClass("is_active");
-    replayCO.addClass("is_active");
+  let coDisplayCheck = replayCO.attr("style");
+  
+  if (coDisplayCheck == "display: block;" ) {
+    limitOn();
+    clearCO.css("display", "none");
+    replayCO.css("display", "none");    
   }
+  meterReset();
 }
-
 
 
 /* ------ EVENTS AND VARIABLES ------ */
@@ -563,6 +552,12 @@ function instructions(number) {
       $("#instructions-pop").text("Follow closely ...");
       instructFade();
       break;
+
+    case 6:
+      $("#instructions-pop").text("Stop them first!");
+      instructFade();
+      break;
+
     default:
   }
 
@@ -615,49 +610,53 @@ function colorChgRound() {
 }
 
 $("#scores").on("dblclick", function () {
-  let tempColor = $(this);
-  colorGrad(tempColor);
+  let elem = $(this);
+  colorGrad(elem);
 });
 
 $("#options").on("dblclick", function () {
-  let tempColor = $(this);
-  colorGrad(tempColor);
+  let elem = $(this);
+  colorGrad(elem);
 });
 
 $("#level").on("dblclick", function () {
-  let tempColor = $(this);
-  colorGrad(tempColor);
+  let elem = $(this);
+  colorGrad(elem);
 });
 
 $("#fill-bar").on("dblclick", function () {
-  let tempColor = $(this);
-  colorGrad(tempColor);
+  let elem = $(this);
+  colorGrad(elem);
 });
 
 $("#header").on("dblclick", function () {
-  let tempColor = $(this);
-  colorGrad(tempColor);
+  let elem = $(this);
+  colorGrad(elem);
 });
 
-function colorGrad(tempColor) {
-  tempColor.css("backgroundColor", colorGen);
-  let colorShift = setInterval(function () {
-    tempColor.css("backgroundColor", colorGen);
+function colorGrad(elem) {
+  elem.css("backgroundColor", colorGen);
+  var colorShift = setInterval(function () {
+    elem.css("backgroundColor", colorGen);
   }, 8000);
 
-  tempColor.on("click", function () {
+  elem.on("click", function () {
     clearInterval(colorShift);
     let x = event.currentTarget;
     let y = getComputedStyle(x, null).getPropertyValue("background-color");
     console.log(y);
-    tempColor.css("backgroundColor", y);
+    elem.css("backgroundColor", y);
   });
 }
 
 
 /* COLOR RESET */
 
-$(".hidden-button").click(function () {
+$(".color-reset-btn").mouseover(function () {
+  instructions(6);
+});
+
+$(".color-reset-btn").click(function () {
   $(".color-square1").css("backgroundColor", "red");
   $(".color-square2").css("backgroundColor", "green");
   $(".color-square3").css("backgroundColor", "yellow");
