@@ -89,27 +89,57 @@ p {
   right: 0;
   margin: auto;
   z-index: 100;
+  overflow: hidden;
+}
+
+.ps-backdrop {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  z-index: 99;
+  background-color: rgba(0, 0, 0, .8);
+  width: 100%;
+  height: 100%;
+  transition: opacity ease-in .8s;
+}
+
+.ps-box-border {
+  position: absolute;
+  bottom: 10px;
+  z-index: -13;
+  border: solid 2px var(--black);
+  float: left;
+  left: 10px;
+  height: 100%;
+  max-height: calc(100% - 20px);
+  width: calc(100% - 20px);
+  box-shadow: 0px 0px 8px var(--black), inset 0px 0px 3px var(--darkgrey);
+  background-color: #ccc;
 }
 
 .ps-btn {
   position: relative;
-  width: 200px;
-  height: 133px;
+  width: 240px;
+  height: 80px;
   border: solid 2px var(--black);
-  background-color: orange;
   background-image: radial-gradient(rgba(0, 0, 0, 0), rgba(255, 255, 255, .1));
-  border-radius: 45px !important;
-  box-shadow: -8px 5px 15px var(--black), -8px 5px 6px 3px var(--black);
+  border-radius: 15px;
+  box-shadow: -8px 5px 11px 3px var(--black);
   padding: 10px;
-  opacity: 0.6;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 20px auto 0;
+}
+
+.wide {
+  width: 450px;
+  height: 80px;
 }
 
 .btn-text {
-  font-size: 40px;
   color: red;
-  padding: 14px;
+  font-size: 30px;
 }
 
 /* INVITATION SCREEN */
@@ -118,24 +148,48 @@ p {
   height: 85%;
   width: 85%;
   background-color: #eee;
-  border-radius: 30px;
+  border-radius: 10px;
   display: block;
+  padding: 10px 0;
   opacity: 1;
   transition: .8s ease-in opacity;
 }
 
+.invite-inner-wrap {
+  max-width: 85%;
+  margin: 15px auto 20px;
+}
+
 .invite-header {
-  color: black;
-  font-size: 80px;
+  color: var(--darkblue);
+  font-size: 34px;
+  line-height: 0;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 .btn-invite {
-  background-color: orange;
-  transition: .5s ease-in-out background-color;
+  background-color: lightgreen;
+  transition: 5s ease-in-out background-color;
 }
+
+/* .btn-invite:hover {
+  background-color: var(--pink);
+} */
 
 .is_invite-fade {
   opacity: 0;
+}
+
+.invite-para {
+  text-align: left;
+  margin: 0 auto;
+}
+
+.invite-subhead {
+  margin: 10px auto 4px;
+  text-align: left;
 }
 
 /* DEATH SCREEN */
@@ -165,7 +219,7 @@ p {
 
 .death-wrap {
   height: 30%;
-  width: 70%;
+  width: 100%;
   position: absolute;
   top: 0;
   bottom: 0;
@@ -196,10 +250,17 @@ p {
 }
 
 .btn-death {
-  margin-top: 100px;
+  margin-top: 70px;
   background-color: pink;
   animation: 3s deathBtnFadeIn;
   box-shadow: none;
+  font-size: 40px;
+  opacity: .6;
+  transition: opacity .5s;
+}
+
+.btn-death:hover {
+  opacity: 1;
 }
 
 @keyframes deathBtnFadeIn {
@@ -348,7 +409,7 @@ p {
 
 }
 
-.score-fill-bar-border {
+.score-box-border {
   position: absolute;
   bottom: 10px;
   z-index: -13;
@@ -361,6 +422,8 @@ p {
   box-shadow: 0px 0px 8px var(--black), inset 0px 0px 4px var(--darkgrey);
   background-color: #666;
 }
+
+
 
 /* END scores */
 /* COLOR SQUARE STYLE AND ANIMATION */

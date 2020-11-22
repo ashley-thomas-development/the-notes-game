@@ -117,19 +117,24 @@ $(".btn-invite").on("click", function () {
 function playButtonClickMove(playBtn) {
   playBtn.css("left", "-=2");
   playBtn.css("top", "+=3");
-  playBtn.css("box-shadow", "-6px 2px 15px var(--black), -6px 2px 6px 3px var(--black)")
+  playBtn.css("box-shadow", "-6px 2px 11px 3px var(--black)")
   setTimeout(function () {
     playBtn.css("left", "+=2");
     playBtn.css("top", "-=3");
-    playBtn.css("box-shadow", "-8px 5px 15px var(--black), -8px 5px 6px 3px var(--black)")
+    playBtn.css("box-shadow", "-8px 5px 11px 3px var(--black)")
   }, 60);
 }
 
 function invitePaneFade() {
+  $(".ps-backdrop").addClass("is_invite-fade");
+
   $(".ps-invite-pane").addClass("is_invite-fade");
   setTimeout(function () {
     $(".ps-invite-pane").css("display", "none");
     $(".ps-invite-pane").removeClass("is_invite-fade");
+    $(".ps-backdrop").removeClass("is_invite-fade");
+    
+    $(".ps-backdrop").css("display", "none");
   }, 2000);
 }
 
@@ -171,7 +176,7 @@ function beginGame() {
 
 function simonsTurn() {
   let newNumber = Math.ceil(Math.random() * 4);
-  if (player1Sounds == arnoldSounds && currentLevel < 5 && newNumber === 3) {
+  if (player1Sounds == arnoldSounds && currentLevel < 6 && newNumber === 3) {
     newNumber = 1;
   }
   sPat.push(newNumber);
@@ -250,7 +255,7 @@ function nextTurn() {
   instructions(1);
   setTimeout(function () {
     message(1);
-  }, 2500);
+  }, 2000);
   setTimeout(function () {
     simonsTurn();
     waitAnimate();
@@ -289,6 +294,8 @@ function gameOver() {
 $(".btn-death").click(function () {
   $(".ps-death-pane").css("display", "none");
   $(".ps-invite-pane").css("display", "block");
+  $(".ps-backdrop").css("display", "block");
+
   $(".ps-death-pane").removeClass("anim_death-pane");
 });
 
@@ -669,6 +676,15 @@ function colorGrad(elem) {
     elem.css("backgroundColor", y);
   });
 }
+
+function inviteGradient() {
+  $("#invite-btn").css("backgroundColor", colorGen);
+  setInterval(function () {
+    $("#invite-btn").css("backgroundColor", colorGen);
+  }, 5000);
+
+}
+
 
 
 /* COLOR RESET */
