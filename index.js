@@ -64,30 +64,37 @@ function squareActive() {
   setTimeout(function () {
     $("#" + sqId + "-box").removeClass("anim_sq-pulse");
   }, 200);
+  var sq1Sound = new Audio(player1Sounds[0]);
+  var sq2Sound = new Audio(player1Sounds[1]);
+  var sq3Sound = new Audio(player1Sounds[2]);
+  var sq4Sound = new Audio(player1Sounds[3]);
 
+  
   switch (sqId) {
     case "sq1":
-      var sq1Sound = new Audio(player1Sounds[0]);
       currentAudio = sq1Sound;
+      sq1Sound.load();
       sq1Sound.play();
       break;
 
     case "sq2":
-      var sq2Sound = new Audio(player1Sounds[1]);
       currentAudio = sq2Sound;
+      sq2Sound.load();
       sq2Sound.play();
       break;
 
     case "sq3":
-      var sq3Sound = new Audio(player1Sounds[2]);
       currentAudio = sq3Sound;
+      sq3Sound.load();
       sq3Sound.play();
+
       break;
 
     case "sq4":
-      var sq4Sound = new Audio(player1Sounds[3]);
       currentAudio = sq4Sound;
+      sq4Sound.load();
       sq4Sound.play();
+
       break;
 
     default:
@@ -170,7 +177,11 @@ function simonsTurn() {
   sPat.push(newNumber);
   sqId = "sq" + newNumber;
   squareActive();
-  playerTurn();
+  setTimeout(function () {
+    playerTurn();
+  }, 200);
+  
+  
 }
 
 
@@ -233,6 +244,7 @@ function nextTurn() {
   $("#instructions-pop").removeClass("anim_instruct-pop");
   playerTurnEnd();
   currentLevel++;
+  partyTempoUp();
   levelBox();
   currentRound = 1;
   instructions(1);
@@ -241,6 +253,7 @@ function nextTurn() {
   }, 2500);
   setTimeout(function () {
     simonsTurn();
+    waitAnimate();
   }, 3000 + (Math.ceil(Math.random() * 4) * 1000));
 }
 
@@ -259,7 +272,7 @@ function playerTurnEnd() {
 function gameOver() {
   timerStop();
   playerTurnEnd();
-  // carryOverLimitClick();
+  partyGameover();
   carryOverState();
   deathScreen();
   highScore();
@@ -472,7 +485,7 @@ function message(number) {
   switch (number) {
     case 1:
       $("#messages-pop").text("Wait for it ...");
-      msgAnimate();
+      $("#messages-pop").css("opacity", "1");
       break;
     default:
   }
@@ -508,6 +521,14 @@ function message(number) {
 }
 
 /* ONSCREEN TEXT ANIMATIONS */
+
+function waitAnimate() {
+  $("#messages-pop").addClass("anim_wait-pop");
+  $("#messages-pop").on("animationend", function () {
+    $(this).css("opacity", "0");
+    $(this).removeClass("anim_wait-pop");
+  });
+}
 
 function msgAnimate() {
   $("#messages-pop").addClass("anim_msg-pop");
@@ -656,6 +677,7 @@ $(".color-reset-btn").mouseover(function () {
   instructions(6);
 });
 
+
 $(".color-reset-btn").click(function () {
   $(".color-square1").css("backgroundColor", "red");
   $(".color-square2").css("backgroundColor", "green");
@@ -667,3 +689,72 @@ $(".color-reset-btn").click(function () {
   $(".item9").css("backgroundColor", "var(--lightgrey)");
   $(".item11").css("backgroundColor", "var(--lightgrey)");
 });
+
+
+/* COLOR SQUARE PARTY MODE */
+
+const colorSqArray = [$('#sq1-box'), $('#sq2-box'), $('#sq4-box'), $('#sq3-box')];
+
+let partyTimer;
+let partyCounter = 0;
+let partyTog = true;
+let interval = 1000;
+
+function partyTimerInterval() {
+  if ( interval <= 2 ) {
+    interval = 1;
+    document.getElementById("partyBtn").innerText = "Max Speed!";
+  } else if ( interval <= 50 ) {
+    interval = interval - 8;
+  } else if (interval <= 200 ) {
+    interval = interval - 25;
+  } else {
+  interval = 1100 - (currentLevel * 100);
+  }
+}
+
+function partyGameover() {
+    interval = 1000;
+    if (partyTog == false ) {
+    partyToggle();
+    }
+}
+
+function partyToggle() {
+  if ( partyTog == true ) {
+    partyStarted();
+    partyTog = false;
+    document.getElementById("partyBtn").innerText = "Too Much?";
+  } else {
+    partysOver();
+    partyTog = true;
+    document.getElementById("partyBtn").innerText = "Party On!";
+  }
+}
+
+function partyTempoUp() {
+  if ( partyTog == false ) {
+    partysOver();
+    partyTimerInterval();
+    partyStarted();
+  }
+}
+
+
+
+function partyShift() {
+  colorSqArray[partyCounter].css("backgroundColor", colorGen);
+  if ( partyCounter === 3) {
+    partyCounter = 0;
+  } else {
+    partyCounter++;
+  }
+}
+
+function partysOver() {
+  clearInterval(partyTimer);
+}
+
+function partyStarted() {
+  partyTimer = setInterval(partyShift, interval)
+}
