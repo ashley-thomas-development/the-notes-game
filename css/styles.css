@@ -161,7 +161,7 @@ p {
 }
 
 .invite-header {
-  color: var(--darkblue);
+  color: black;
   font-size: 34px;
   line-height: 0;
   position: relative;
@@ -170,7 +170,7 @@ p {
 }
 
 .btn-invite {
-  background-color: lightgreen;
+  background-color: var(--pink);
   transition: 5s ease-in-out background-color;
 }
 
@@ -190,6 +190,9 @@ p {
 .invite-subhead {
   margin: 10px auto 4px;
   text-align: left;
+  font-size: 20px;
+  color: var(--darkgrey);
+  letter-spacing: .5px;
 }
 
 /* DEATH SCREEN */
@@ -315,9 +318,7 @@ p {
   top: 15px;
 }
 
-.msg-pane {
-
-}
+.msg-pane {}
 
 #messages-pop {
   padding: 0;
@@ -622,8 +623,8 @@ p {
   margin: 0px auto 15px;
   border-radius: 12px;
   box-shadow: 4px 3px 4px #333;
-  padding: 9px;
-  border: solid 2px var(--black);
+  padding: 10px 9px 9px;
+  border: solid 2px var(--darkgrey);
   transition: 1s opacity;
 }
 
@@ -643,7 +644,7 @@ p {
   float: left;
   opacity: .5;
   border-radius: 12px;
-  padding: 10px;
+  padding: 12px 11px 11px;
 }
 
 .ghosted-clear {
@@ -665,8 +666,6 @@ p {
 
 .meter-btn-clear-co {
   background-color: var(--blue);
-  display: none;
-  margin: 0px auto 15px;
   position: absolute;
   left: 0;
   right: -8px;
@@ -674,13 +673,11 @@ p {
   bottom: 90px;
   z-index: 0;
   transition: 2s background-color;
-  border: solid 2px var(--darkgrey);
+
 }
 
 .meter-btn-replay-co {
   background-color: var(--blue);
-  display: none;
-  margin: 0px auto 15px;
   position: absolute;
   left: 0;
   right: -8px;
@@ -688,7 +685,7 @@ p {
   bottom: 9px;
   z-index: 0;
   transition: 2s background-color;
-  border: solid 2px var(--darkgrey);
+
 }
 
 .is_active {
@@ -829,7 +826,7 @@ p {
 #instructions-pop {
   font-family: blenny, sans-serif;
   padding: 0;
-  font-size: 68px;
+  font-size: 60px;
   color: var(--pink);
   opacity: 0;
 }
@@ -865,44 +862,69 @@ p {
   box-shadow: 0px 0px 20px var(--black);
 }
 
-.options-menu {
-}
+.options-menu {}
 
 /* END options */
 /* ANIMATION CLASSES */
 
 .is_color-pick {
   transition-property: background-color, height;
-  transition-duration: 8s, 2s;
+  transition-duration: 7s, 2s;
 }
 
 .color-reset-btn {
   z-index: 90;
-  width: 130px;
-  height: 60px;
-  background-color: green;
+  width: 124px;
+  height: 58px;
+  background-color: var(--pink);
   position: absolute;
-  bottom: 42px;
-  right: 42px;
+  bottom: 43px;
+  right: 45px;
   font-family: blenny, sans-serif;
   font-size: 20px;
-  border: none;
-  border-radius: 10px;
+  border: solid 2px var(--darkgrey);
+  border-radius: 12px;
   outline: none;
+  line-height: 1;
+  box-shadow: 0px 0px 8px var(--black), inset 0px 0px 4px var(--darkgrey);
 
-  
 }
 
 #partyBtn {
   border: none;
-  width: 130px;
-  height: 60px;
+  width: 124px;
+  height: 58px;
   background-color: lightblue;
   font-family: blenny, sans-serif;
   font-size: 20px;
-  border-radius: 10px;
+  border-radius: 12px;
+  border: solid 2px var(--darkgrey);
+  line-height: 1;
   outline: none;
+  box-shadow: 0px 0px 4px var(--darkgrey), inset 0px 0px 2px var(--darkgrey);
+
 }
+
+.anim_wait-pulse {
+  animation: waitPulse 1.5s infinite;
+}
+
+
+@keyframes waitPulse {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.1;
+  }
+ 
+
+  100% {
+    opacity: 1;
+  }
+}
+
 
 /* END animations*/
 

@@ -234,7 +234,6 @@ function patCheck() {
     meterFill();
   } else if (sPat[sPat.length - (sPat.length - p1Pat.length) - 1] === p1Pat[p1Pat.length - 1]) {
     currentRound++;
-    message();
     hardMode();
   } else {
     currentAudio.pause();
@@ -255,6 +254,7 @@ function nextTurn() {
   instructions(1);
   setTimeout(function () {
     message(1);
+    message();
   }, 2000);
   setTimeout(function () {
     simonsTurn();
@@ -491,37 +491,43 @@ function message(number) {
 
   switch (number) {
     case 1:
-      $("#messages-pop").text("Wait for it ...");
+      if ( currentLevel === 10 || currentLevel === 15 || currentLevel === 20 || currentLevel === 25 ) {
+        // do nothing 
+      } else {
+      $("#messages-pop").html("Wait for it <span class='anim_wait-pulse'>...</span>");
       $("#messages-pop").css("opacity", "1");
+      }
       break;
     default:
   }
 
-  if (currentRound > 5) {
+  if ( partyState == false ) {
+    // do nothing
+  } else if (currentRound > 5) {
     if (Math.ceil(Math.random() * 8) === 1) {
-      $("#messages-pop").text("Oh, sorry bout that ...");
+      $("#messages-pop").text("So sorry bout this...");
       msgAnimate();
       colorChgRound();
     }
   }
 
-  if (currentRound === 10) {
-    $("#messages-pop").text("Round 10!");
+  if (currentLevel === 10) {
+    $("#messages-pop").text("Level 10!");
     msgAnimate();
   }
 
-  if (currentRound === 15) {
+  if (currentLevel === 15) {
     $("#messages-pop").text("You're Amazing!");
     msgAnimate();
   }
 
-  if (currentRound === 20) {
+  if (currentLevel === 20) {
     $("#messages-pop").text("Are you psychic?");
     msgAnimate();
   }
 
-  if (currentRound === 25) {
-    $("#messages-pop").text("You really should go do something else ...");
+  if (currentLevel === 25) {
+    $("#messages-pop").text("I need a break!");
     msgAnimate();
   }
 
@@ -582,7 +588,7 @@ function instructions(number) {
       break;
 
     case 6:
-      $("#instructions-pop").text("Stop them first!");
+      $("#instructions-pop").text("Solid colors only!");
       instructFade();
       break;
 
@@ -666,7 +672,7 @@ function colorGrad(elem) {
   elem.css("backgroundColor", colorGen);
   var colorShift = setInterval(function () {
     elem.css("backgroundColor", colorGen);
-  }, 8000);
+  }, 7000);
 
   elem.on("click", function () {
     clearInterval(colorShift);
@@ -677,14 +683,13 @@ function colorGrad(elem) {
   });
 }
 
-function inviteGradient() {
-  $("#invite-btn").css("backgroundColor", colorGen);
-  setInterval(function () {
-    $("#invite-btn").css("backgroundColor", colorGen);
-  }, 5000);
+// function inviteGradient() {
+//   $("#invite-btn").css("backgroundColor", colorGen);
+//   setInterval(function () {
+//     $("#invite-btn").css("backgroundColor", colorGen);
+//   }, 5000);
 
-}
-
+// }
 
 
 /* COLOR RESET */
@@ -713,7 +718,7 @@ const colorSqArray = [$('#sq1-box'), $('#sq2-box'), $('#sq4-box'), $('#sq3-box')
 
 let partyTimer;
 let partyCounter = 0;
-let partyTog = true;
+let partyState = true;
 let interval = 1000;
 
 function partyTimerInterval() {
@@ -731,25 +736,25 @@ function partyTimerInterval() {
 
 function partyGameover() {
     interval = 1000;
-    if (partyTog == false ) {
+    if (partyState == false ) {
     partyToggle();
     }
 }
 
 function partyToggle() {
-  if ( partyTog == true ) {
+  if ( partyState == true ) {
     partyStarted();
-    partyTog = false;
-    document.getElementById("partyBtn").innerText = "Too Much?";
+    partyState = false;
+    document.getElementById("partyBtn").innerText = "Stop Party";
   } else {
     partysOver();
-    partyTog = true;
-    document.getElementById("partyBtn").innerText = "Party On!";
+    partyState = true;
+    document.getElementById("partyBtn").innerText = "Party Mode";
   }
 }
 
 function partyTempoUp() {
-  if ( partyTog == false ) {
+  if ( partyState == false ) {
     partysOver();
     partyTimerInterval();
     partyStarted();
