@@ -6,21 +6,26 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="">
-  <meta name="keywords" content="" />
-  <meta name="author" content="" />
-  <meta name="copyright" content="" />
+  <meta name="description" content="A memory game with pop-culture sounds. Narrated by everyone's favorite Arnold.">
+  <meta name="keywords" content="memory game, arnold game, soundboard, javascript game" />
+  <meta name="author" content="William Rideout" />
+  <meta name="copyright" content="2020" />
   <link rel="stylesheet" href="https://use.typekit.net/lae5rnl.css">
   <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
   <title>The Arnold Game</title>
 </head>
 
-<body>
+<body onload="forceArnold()">
+
+  <!-- PLAY STATE PANES -->
+
+  <!-- INVITE -->
 
   <div class="ps-backdrop"></div>
   <div class="ps ps-invite-pane">
-  <div class="ps-box-border"></div>
+
+    <div class="ps-box-border"></div>
     <div id="invite-btn" class="ps-btn btn-invite wide">
       <h2 class="invite-header">Play The Arnold Game!</h2>
     </div>
@@ -30,23 +35,23 @@
       <p class="invite-para">At the beginning of each turn a sound will play. It is your job to repeat the
         pattern back. On each new turn you will only see/hear Arnold's new pick, while you still have to input the
         entire pattern from the beginning. Don't take Arnold too seriously. Good Luck!</p>
-
       <h3 class="invite-subhead">Limit Meter:</h3>
       <p class="invite-para">Depending on how quickly you are able to complete Arnold's pattern, your meter may
-        fill. Once it reaches the top you have a choice of two special powers to use whenever you wish. BONUS: If your meter is filled when you lose, you carry the powers over to the next game. You
+        fill. Once it reaches the top you have a choice of two special powers to use whenever you wish. BONUS: If your
+        meter is filled when you lose, you carry the powers over to the next game. You
         can have only one extra power per game.</p>
-
       <h3 class="invite-subhead">Options:</h3>
       <p class="invite-para">If you want an extra challenge, "Party Mode" will continually change the colors of the
-        squares, and get faster with every turn. Some items on the screen can be double-clicked to make their color slowly change. Single-click to stop it. Customize your game!</p>
-
+        squares, and get faster with every turn. Some items on the screen can be double-clicked to make their color
+        slowly change. Single-click to stop it. Customize your game!</p>
       <h3 class="invite-subhead">Tips:</h3>
       <p class="invite-para">We humans are good at remembering small chunks of information. Use this to your advantage!
         Try remembering the pattern in smaller groups of 2, 3, or even 5!</p>
-
     </div>
 
   </div>
+
+  <!-- GAME OVER -->
 
   <div class="ps ps-death-pane">
     <div class="death-wrap">
@@ -54,16 +59,18 @@
       <div class="ps-btn btn-death">
         <h3 class="btn-text">Play Again?</h3>
       </div>
-
     </div>
   </div>
 
-  <!-- - - - - - MAIN GRID CONTAINER - - - - - - -->
+  <!-- END PLAY STATE -->
+  
+  <!-- MAIN GRID CONTAINER -->
 
   <div class="grid-container ">
 
-    <div id="header" class="item1 game-header is_color-pick">
-      <h1 class="simon-header">The Arnold Game</h1>
+    <div id="header" class="item1 is_color-pick">
+      <div id="forceArnold"></div>
+      <h1 class="arnold-header">The <span id="arnoldTitle">Arnold</span> Game</h1>
     </div>
 
     <div class="item2 msg-pane">
@@ -83,15 +90,15 @@
     </div>
 
     <!-- COLOR SQUARES -->
-    <div id="sq1-box" class="item4 color-square1 anim_sq-glow anim_color-change color"></div>
-    <div id="sq2-box" class="item5 color-square2 anim_sq-glow anim_color-change color"></div>
-    <div id="sq4-box" class="item7 color-square4 anim_sq-glow anim_color-change color"></div>
-    <div id="sq3-box" class="item6 color-square3 anim_sq-glow anim_color-change color"></div>
+    <div id="sq1-box" class="item4 color-square1 anim_sq-glow"></div>
+    <div id="sq2-box" class="item5 color-square2 anim_sq-glow"></div>
+    <div id="sq4-box" class="item7 color-square4 anim_sq-glow"></div>
+    <div id="sq3-box" class="item6 color-square3 anim_sq-glow"></div>
     <!-- END -->
 
     <div class="item8 meter-box">
       <div id="fill-bar" class="meter-fill-bar is_color-pick"></div>
-      <h3 class="meter-header hidden-button">Meter</h3>
+      <h3 class="meter-header">Meter</h3>
       <div class="meter-fill-bar-border"></div>
       <div class="meter-timer">0</div>
       <div class="meter-btn meter-btn-clear is_active">Clear</div>
@@ -117,11 +124,12 @@
     <div id="options" class="item11 options-menu is_color-pick">
       <button id="partyBtn" type="button" onclick="partyToggle()">Party Mode</button>
     </div>
+    <!-- This button lives outside the cold in html, but uses absolute positioning to sit within the Options box on-screen. For unknown reason I was unable to make button function apply to a parent element.  Possible problem with jQuery. Possible problem with developer. Probable problem with developer's jQuery.   -->
     <button class="color-reset-btn">Color Reset</button>
 
   </div>
 
-  <!-- - - - - - END MAIN GRID  - - - - - - -->
+  <!-- END MAIN GRID -->
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="index.js" charset="utf-8"></script>
