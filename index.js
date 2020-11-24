@@ -48,6 +48,9 @@ function arnoldModeSwitch() {
 }
 
 $("#forceArnold").on("click", function () {
+  if ( player1Sounds == arnoldSounds ) {
+    arnoldCounter++
+  }
   player1Sounds = arnoldBank[arnoldCounter];
   arnoldBool = false;
   $("#arnoldTitle").css("color", "var(--darkblue)");
@@ -62,6 +65,7 @@ $("#forceArnold").on("dblclick", function () {
   $("#arnoldTitle").css("color", "red");
   arnoldBool = true;
 });
+
 
 
 var starTrekSounds = [

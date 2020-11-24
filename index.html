@@ -57,7 +57,7 @@
     <div class="death-wrap">
       <h2 class="death-header">Game Over</h2>
       <div class="ps-btn btn-death">
-        <h3 class="btn-text">Play Again?</h3>
+        <h3 class="btn-death-text">Play Again?</h3>
       </div>
     </div>
   </div>
@@ -73,11 +73,11 @@
       <h1 class="arnold-header">The <span id="arnoldTitle">Arnold</span> Game</h1>
     </div>
 
-    <div class="item2 msg-pane">
+    <div id="messsages" class="item2">
       <p id="messages-pop"></p>
     </div>
 
-    <div id="scores" class="item3 score-box is_color-pick">
+    <div id="scores" class="item3 is_color-pick">
       <div class="score-box-border"></div>
       <h3 class="score-header">High Score</h3>
       <p id="player1HighScore">...</p>
@@ -111,9 +111,9 @@
 
     <div id="level" class="item9 level-box is_color-pick">
       <div class="level-wrap">
-        <div class="level-line1">Current</div>
+        <div>Current</div>
         <div class="level-num">0</div>
-        <div class="level-line2">Level</div>
+        <div>Level</div>
       </div>
     </div>
 
@@ -121,7 +121,7 @@
       <p id="instructions-pop"></p>
     </div>
 
-    <div id="options" class="item11 options-menu is_color-pick">
+    <div id="options" class="item11 is_color-pick">
       <button id="partyBtn" type="button" onclick="partyToggle()">Party Mode</button>
     </div>
     <!-- This button lives outside the cold in html, but uses absolute positioning to sit within the Options box on-screen. For unknown reason I was unable to make button function apply to a parent element.  Possible problem with jQuery. Possible problem with developer. Probable problem with developer's jQuery.   -->
