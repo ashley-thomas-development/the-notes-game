@@ -112,6 +112,8 @@ p {
   border: solid 2px var(--black);
   box-shadow: 0px 0px 8px var(--black), inset 0px 0px 3px var(--darkgrey);
   background-color: #ccc;
+  overflow: hidden;
+
 }
 
 .ps-btn {
@@ -133,6 +135,7 @@ p {
   width: 450px;
   height: 80px;
 }
+
 .ps-invite-pane {
   display: block;
   width: 85%;
@@ -147,6 +150,21 @@ p {
 .invite-inner-wrap {
   max-width: 85%;
   margin: 15px auto 20px;
+}
+
+.invite-inner-wrap > h3, p {
+  position: relative;
+  z-index: 50;
+}
+
+.ps-text-frame {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  padding: 10px 0 100px;
+  overflow-y: auto;
+  right: -20px;
+
 }
 
 .invite-header {

@@ -521,24 +521,24 @@ function highScore() {
 }
 
 function scorePush() {
-  $("#player1ScoreBox1").text("Level " + player1LastScore);
-  $("#player1HighScore").text("Level " + player1HighScore);
+  $("#player1ScoreBox1").text("Lvl " + player1LastScore);
+  $("#player1HighScore").text("Lvl " + player1HighScore);
   pastScores();
 }
 
 function pastScores() {
   scoreHist.push(player1LastScore);
   if (scoreHist.length > 1) {
-    $("#player1ScoreBox2").text("Level " + scoreHist[scoreHist.length - 2]);
+    $("#player1ScoreBox2").text("Lvl " + scoreHist[scoreHist.length - 2]);
   }
   if (scoreHist.length > 2) {
-    $("#player1ScoreBox3").text("Level " + scoreHist[scoreHist.length - 3]);
+    $("#player1ScoreBox3").text("Lvl " + scoreHist[scoreHist.length - 3]);
   }
   if (scoreHist.length > 3) {
-    $("#player1ScoreBox4").text("Level " + scoreHist[scoreHist.length - 4]);
+    $("#player1ScoreBox4").text("Lvl " + scoreHist[scoreHist.length - 4]);
   }
   if (scoreHist.length > 4) {
-    $("#player1ScoreBox5").text("Level " + scoreHist[scoreHist.length - 5]);
+    $("#player1ScoreBox5").text("Lvl " + scoreHist[scoreHist.length - 5]);
   }
 }
 
