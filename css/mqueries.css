@@ -1,0 +1,96 @@
+
+
+
+@media screen and (max-width: 1063px), screen and (max-height: 767px), {
+
+    .arnold-header {
+        font-size: 70px;
+        line-height: 95px;
+        margin-top: -10px;
+    }
+
+    .grid-container {
+        grid-template-rows: 100px auto 150px 150px 120px;
+        width: 805px;
+        height: 600px;
+        padding: 15px;
+    }
+
+    .item3 {
+        top: -8px;
+    }
+
+    #messages-pop {
+        line-height: 0;
+        font-size: 35px;
+    }
+
+    .item8 {
+        top: -8px;
+    }
+
+    .item9 {
+        margin-bottom: 10px;
+    }
+
+    .item11 {
+        margin-bottom: 10px;
+
+    }
+
+    .level-num {
+        font-size: 35px!important;
+    }
+
+    .level-wrap div {
+        font-size: 22px;
+        margin-top: -7px;
+    }
+
+    #instructions-pop {
+        font-size: 45px;
+    }
+
+    #partyBtn {
+        position: relative;
+        top: -3px;
+        font-size: 17px;
+        height: 42px;
+    }
+
+    .color-reset-btn {
+        position: relative;
+        top: -4px;
+        font-size: 17px;
+        height: 42px;
+    }
+}
+
+
+@media screen and (max-width: 799px), screen and (max-height: 599px) {
+
+    body {
+        width: 100vw;
+        height: 100vh;
+    }
+
+    .grid-container {
+        grid-template-columns: 25% auto auto 25%;
+        grid-template-rows: 22% auto 22% 22% 22%;
+        grid-template-areas:
+        "header  header header  header"
+        "......  message message  ....."
+        "score  square1 square2  meter"
+        "score  square3 square4  meter"
+        "level  instruct instruct  options";
+        width: 100vw;
+        height: 100vh;
+        border-radius: 0;
+        padding: 5px;
+        top: 0;
+        transform: none;
+        grid-gap: 5px
+    }
+
+
+}

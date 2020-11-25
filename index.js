@@ -705,10 +705,10 @@ $("#scores").on("dblclick", function () {
   colorGrad(elem);
 });
 
-$("#options").on("dblclick", function () {
-  let elem = $(this);
-  colorGrad(elem);
-});
+// $("#options").on("dblclick", function () {
+//   let elem = $(this);
+//   colorGrad(elem);
+// });
 
 $("#level").on("dblclick", function () {
   let elem = $(this);
@@ -756,7 +756,7 @@ $(".color-reset-btn").click(function () {
   $(".item3").css("backgroundColor", "var(--lightgrey)");
   $(".item8").css("backgroundColor", "var(--lightgrey)");
   $(".item9").css("backgroundColor", "var(--lightgrey)");
-  $(".item11").css("backgroundColor", "var(--lightgrey)");
+  // document.getElementById("options").style.backgroundColor = "var(--lightgrey)";
 });
 
 

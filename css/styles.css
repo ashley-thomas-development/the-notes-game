@@ -21,6 +21,7 @@
 }
 
 body {
+  position: relative;
   margin: 0;
   text-align: center;
   background-color: #090909;
@@ -55,14 +56,16 @@ p {
   "score ....... square3 square4 ........ meter"
   "level instruct instruct instruct instruct options";
   position: relative;
+  top: 50vh;
+  transform: translateY(-50%);
   display: grid;
   grid-template-columns: 150px auto 200px 200px auto 150px;
   grid-template-rows: 140px 50px 150px 150px 150px;
-  grid-gap: 1rem;
+  grid-gap: 15px;
   max-width: 1200px;
-  padding: 2rem;
+  padding: 30px;
   border-radius: 10px;
-  margin: 20px auto;
+  margin: 0 auto;
   background-color: #181818;
 }
 
@@ -91,9 +94,9 @@ p {
   bottom: 0;
   left: 0;
   right: 0;
-  width: 100%;
-  height: 100%;
-  margin: auto;
+  width: 100vw;
+  height: 100vh;
+  margin: 0 auto;
   background-color: rgba(0, 0, 0, .8);
   transition: opacity ease-in .8s;
 }
@@ -269,14 +272,6 @@ p {
 }
 
 
-/* DBLCLICK COLOR CHANGE */
-
-.is_color-pick {
-  transition-property: background-color, height;
-  transition-duration: 7s, 2s;
-}
-
-
 /* HEADER */
 
 .item1 {
@@ -293,7 +288,7 @@ p {
   color: var(--darkblue);
   line-height: 120px;
   letter-spacing: 1px;
-  background-color: inherit;
+  background-color: rgba(0, 0, 0, 0);
   -webkit-text-stroke: 1px black;
   text-shadow:
     5px 4px 0 black,
@@ -801,6 +796,7 @@ p {
   padding: 0;
   font-family: blenny, sans-serif;
   font-size: 60px;
+  line-height: 1;
   color: var(--pink);
   opacity: 0;
 }
@@ -829,26 +825,8 @@ p {
   grid-area: options;
   padding: 13px 10px 10px 10px;
   font-family: blenny, sans-serif;
-  font-size: 22px;
   box-shadow: 0px 0px 20px var(--black);
   background-color: var(--lightgrey);
-}
-
-.color-reset-btn {
-  position: absolute;
-  z-index: 90;
-  right: 45px;
-  bottom: 43px;
-  width: 124px;
-  height: 58px;
-  border: solid 2px var(--darkgrey);
-  border-radius: 12px;
-  font-family: blenny, sans-serif;
-  font-size: 20px;
-  outline: none;
-  line-height: 1;
-  box-shadow: 0px 0px 8px var(--black), inset 0px 0px 4px var(--darkgrey);
-  background-color: var(--pink);
 }
 
 #partyBtn {
@@ -864,5 +842,26 @@ p {
   background-color: lightblue;
 }
 
+.color-reset-btn {
+  width: 124px;
+  height: 58px;
+  border: solid 2px var(--darkgrey);
+  border-radius: 12px;
+  margin: 8px auto 0;
+  font-family: blenny, sans-serif;
+  font-size: 20px;
+  outline: none;
+  line-height: 1;
+  box-shadow: 0px 0px 8px var(--black), inset 0px 0px 4px var(--darkgrey);
+  background-color: var(--pink);
+}
+
+
+/* DBLCLICK COLOR CHANGE */
+
+.is_color-pick {
+  transition-property: background-color, height;
+  transition-duration: 7s, 2s;
+}
 
 /* End of document */
