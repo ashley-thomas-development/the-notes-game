@@ -47,23 +47,23 @@ function arnoldModeSwitch() {
   }
 }
 
+$("#forceArnold").on("dblclick", function () {
+  $("#forceArnold").css("color", "red");
+  arnoldBool = true;
+});
+
 $("#forceArnold").on("click", function () {
   if ( player1Sounds == arnoldSounds ) {
     arnoldCounter++
   }
   player1Sounds = arnoldBank[arnoldCounter];
   arnoldBool = false;
-  $("#arnoldTitle").css("color", "var(--darkblue)");
+  $("#forceArnold").css("color", "var(--darkblue)");
   if ( arnoldCounter == arnoldBank.length - 1 ) {
     arnoldCounter = 0;
   } else {
     arnoldCounter++;
   }
-});
-
-$("#forceArnold").on("dblclick", function () {
-  $("#arnoldTitle").css("color", "red");
-  arnoldBool = true;
 });
 
 

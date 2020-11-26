@@ -1,3 +1,5 @@
+/* CSS styles for "The Arnold Game"  */
+
 /* BASE STYLES */
 :root {
   --darkblue: #10375c;
@@ -79,12 +81,11 @@ p {
 .ps {
   z-index: 100;
   position: absolute;
-  top: 0;
-  bottom: 0;
+  top: 50%;
+  transform: translateY(-50%);
   left: 0;
   right: 0;
-  margin: auto;
-  overflow: hidden;
+  margin: 0 auto;
 }
 
 .ps-backdrop {
@@ -178,7 +179,6 @@ p {
 
 .btn-invite {
   background-color: var(--pink);
-  transition: 5s ease-in-out background-color;
 }
 
 .is_invite-fade {
@@ -203,12 +203,13 @@ p {
   background-color: rgba(0, 0, 0, 0);
 }
 
+
 /* DEATH SCREEN */
 
 .ps-death-pane {
   display: none;
-  height: 100%;
-  width: 100%;
+  height: 100vh;
+  width: 100vw;
   background-color: black;
 }
 
@@ -218,13 +219,13 @@ p {
 
 @keyframes deathPaneAnim {
   0% {
-    width: 0%;
-    height: 0%;
+    width: 0vw;
+    height: 0vh;
   }
 
   100% {
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
   }
 }
 
@@ -321,14 +322,7 @@ p {
 }
 
 #forceArnold {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  left: 0;
-  right: 75px;
-  width: 365px;
-  height: 80px;
-  margin: 0 auto;
+  display: inline-block;  
 }
 
 
@@ -468,7 +462,6 @@ p {
   place-self: center;
   width: 90%;
   height: 90%;
-  padding: 10px;
   border: solid 2px var(--black);
   border-radius: 45px !important;
   opacity: 0.6;
@@ -488,7 +481,6 @@ p {
   border: solid 2px var(--black);
   width: 90%;
   height: 90%;
-  padding: 10px;
   border-radius: 45px !important;
   opacity: 0.6;
   background-color: green;
@@ -506,7 +498,6 @@ p {
   place-self: center;
   width: 90%;
   height: 90%;
-  padding: 10px;
   border: solid 2px var(--black);
   border-radius: 45px !important;
   opacity: 0.6;
@@ -525,7 +516,6 @@ p {
   place-self: center;
   width: 90%;
   height: 90%;
-  padding: 10px;
   border: solid 2px var(--black);
   border-radius: 45px !important;
   opacity: 0.6;
@@ -540,25 +530,26 @@ p {
 }
 
 .anim_sq-pulse {
-  animation: sqAnimPulse .5s ease-in-out; 
+  animation: sqAnimPulse 1s ease-in-out; 
 }
 
 @keyframes sqAnimPulse {
   0% {
-    width: 90%;
-    height: 90%;
+    width: 88%;
+    height: 88%;
   }
 
   50% {
-    width: 96%;
-    height: 96%;
+    width: 98%;
+    height: 98%;
   }
 
   100% {
-    width: 90%;
-    height: 90%;
+    width: 88%;
+    height: 88%;
   }
 }
+
 
 /* METER BOX */
 
@@ -679,7 +670,6 @@ p {
   left: 0;
   right: -8px;
   bottom: 90px;
-  float: left;
   background-color: var(--blue);
   transition: 2s background-color;
 }
@@ -690,7 +680,6 @@ p {
   left: 0;
   right: -8px;
   bottom: 9px;
-  float: left;
   background-color: var(--blue);
   transition: 2s background-color;
 }
@@ -746,6 +735,7 @@ p {
     background-color: var(--blue)
   }
 }
+
 
 /* LEVEL COUNTER */
 
@@ -840,6 +830,7 @@ p {
     opacity: 0;
   }
 }
+
 
 /* OPTIONS */
 
