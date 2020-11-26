@@ -54,7 +54,7 @@ $("#forceArnold").on("dblclick", function () {
 
 $("#forceArnold").on("click", function () {
   if ( player1Sounds == arnoldSounds ) {
-    arnoldCounter++
+    arnoldCounter++;
   }
   player1Sounds = arnoldBank[arnoldCounter];
   arnoldBool = false;
@@ -66,22 +66,12 @@ $("#forceArnold").on("click", function () {
   }
 });
 
-
-
-var starTrekSounds = [
-  "sounds/alert03.mp3",
-  "sounds/computerbeep_4.mp3",
-  "sounds/computerbeep_59.mp3",
-  "sounds/computerbeep_42.mp3",
-  "sounds/autodestructsequencearmed_ep.mp3",
-]
-
 var arnoldSounds = [
-  "sounds/how-are-you.mp3",
-  "sounds/howdy.mp3",
-  "sounds/idiot.mp3",
-  "sounds/sorry-2.mp3",
-  "sounds/hasta.mp3",
+  "sounds/arnold1/how-are-you.mp3",
+  "sounds/arnold1/howdy.mp3",
+  "sounds/arnold1/idiot.mp3",
+  "sounds/arnold1/sorry-2.mp3",
+  "sounds/arnold1/hasta.mp3",
 ]
 
 var arnoldSounds2 = [
@@ -93,23 +83,38 @@ var arnoldSounds2 = [
 ]
 
 var arnoldSounds3 = [
-  "sounds/arnold3/do-it.mp3",
-  "sounds/arnold3/dinosaurs.mp3",
-  "sounds/arnold3/dky.mp3",
+  "sounds/arnold3/boris.mp3",
+  "sounds/arnold3/daddy.mp3",
+  "sounds/arnold3/quaid.mp3",
   "sounds/arnold3/dont-worry.mp3",
   "sounds/arnold3/tan.mp3",
 ]
 
-arnoldBank = [arnoldSounds, arnoldSounds2, arnoldSounds3];
-
-var marioSounds = [
-  "sounds/smb_1-up.wav",
-  "sounds/smb_bump.wav",
-  "sounds/smb_coin.wav",
-  "sounds/smb_fireball.wav",
-  "sounds/smb_gameover.wav",
+var arnoldSounds4 = [
+  "sounds/arnold3/do.mp3",
+  "sounds/arnold3/do-it.mp3",
+  "sounds/arnold3/do-it-now.mp3",
+  "sounds/arnold3/do-what-tell-you.mp3",
+  "sounds/arnold3/mars.mp3",
 ]
 
+arnoldBank = [arnoldSounds, arnoldSounds2, arnoldSounds3, arnoldSounds4];
+
+var marioSounds = [
+  "sounds/mario/smb_1-up.wav",
+  "sounds/mario/smb_bump.wav",
+  "sounds/mario/smb_coin.wav",
+  "sounds/mario/smb_fireball.wav",
+  "sounds/mario/smb_gameover.wav",
+]
+
+var starTrekSounds = [
+  "sounds/tng/alert03.mp3",
+  "sounds/tng/computerbeep_4.mp3",
+  "sounds/tng/computerbeep_59.mp3",
+  "sounds/tng/computerbeep_42.mp3",
+  "sounds/tng/autodestructsequencearmed_ep.mp3",
+]
 
 /* SQUARE ANIMATION AND SOUND */
 
