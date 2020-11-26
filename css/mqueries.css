@@ -382,7 +382,7 @@ screen and (max-height: 599px) {
 
 }
 
-@media screen and (max-width: 420px) {
+@media screen and (max-width: 430px) {
 
     .arnold-header {
         position: absolute;

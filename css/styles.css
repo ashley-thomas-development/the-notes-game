@@ -306,7 +306,7 @@ p {
 .item1 {
   grid-area: header;
   position: relative;
-  padding: 10px;
+  padding: 10px 15px;
   background-color: var(--pink);
   box-shadow: 0px 0px 20px var(--black);
 }
