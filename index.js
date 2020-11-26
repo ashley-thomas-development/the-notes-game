@@ -91,14 +91,14 @@ var arnoldSounds3 = [
 ]
 
 var arnoldSounds4 = [
-  "sounds/arnold4/do.mp3",
-  "sounds/arnold4/do-it.mp3",
-  "sounds/arnold4/do-it-now.mp3",
-  "sounds/arnold4/do-what-tell-you.mp3",
+  "sounds/arnold4/1.mp3",
+  "sounds/arnold4/2.mp3",
+  "sounds/arnold4/3.mp3",
+  "sounds/arnold4/4.mp3",
   "sounds/arnold4/mars.mp3",
 ]
 
-arnoldBank = [arnoldSounds, arnoldSounds2, arnoldSounds3, arnoldSounds4];
+arnoldBank = [arnoldSounds, arnoldSounds2, arnoldSounds3, arnoldSounds4,];
 
 var marioSounds = [
   "sounds/mario/smb_1-up.wav",
