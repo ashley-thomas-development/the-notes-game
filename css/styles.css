@@ -536,13 +536,18 @@ p {
 }
 
 .anim_sq-pulse {
-  animation: sqAnimPulse 1s ease-in-out; 
+  animation: sqAnimPulse 1.3s ease-in-out; 
 }
 
 @keyframes sqAnimPulse {
   0% {
-    width: 88%;
-    height: 88%;
+    width: 85%;
+    height: 85%;
+    opacity: 0.6;
+  }
+
+  10% {
+    opacity: 1;
   }
 
   50% {
@@ -550,9 +555,14 @@ p {
     height: 98%;
   }
 
+  90% {
+    opacity: 1;
+  }
+
   100% {
-    width: 88%;
-    height: 88%;
+    width: 85%;
+    height: 85%;
+    opacity: 0.6;
   }
 }
 
