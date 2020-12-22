@@ -297,7 +297,7 @@ p {
   display: inline-block;  
 }
 
-/* MESSAGES PANE */
+/* MESSAGES */
 
 .item2 {
   grid-area: message;
@@ -755,8 +755,7 @@ p {
 /* DBLCLICK COLOR CHANGE */
 
 .is_color-pick {
-  transition-property: background-color, height;
-  transition-duration: 7s, 2s;
+  transition: background-color 7s, height 2s;
 }
 
 /* End of document */

@@ -1,5 +1,6 @@
 /* JavaScript for Arnold's Game */                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
 
+
 /* LIST OF VARIABLES AND ARRAYS */
 
 let p1Pat = [];
@@ -22,7 +23,8 @@ let arnoldBank = [];
 let arnoldCounter = 0;
 let arnoldBool = false;
 
-/* SOUNDS ARRAY AND PICKER */
+
+/* SOUNDS ARRAYS AND PICKER */
 
 function soundBankPicker() {
 
@@ -168,7 +170,7 @@ function squareActive() {
 }
 
 
-/* INVITE SCREEN */
+/* PLAYSTATE - INVITE SCREEN */
 
 $(".btn-invite").on("click", function () {
   var playBtn = $(this);
@@ -778,7 +780,7 @@ $("#scores").on("dblclick", function () {
   colorGrad(elem);
 });
 
-// CANT GET THIS TO WORK! LISTENER WILL NOT GRAB PARENT ELEMENT OF TARGET
+// CANT GET THIS TO WORK - LISTENER WILL NOT GRAB PARENT ELEMENT OF TARGET
 // $("#options").on("dblclick", function () {
 //   let elem = $(this);
 //   colorGrad(elem);
@@ -816,7 +818,7 @@ function colorGrad(elem) {
 }
 
 
-/* COLOR RESET */
+/* COLOR RESET BUTTON */
 
 $(".color-reset-btn").mouseover(function () {
   instructions(6);
@@ -835,7 +837,7 @@ $(".color-reset-btn").click(function () {
 });
 
 
-/* PARTY MODE */
+/* PARTY MODE OPTION */
 
 const colorSqArray = [$('#sq1-box'), $('#sq2-box'), $('#sq4-box'), $('#sq3-box')];
 

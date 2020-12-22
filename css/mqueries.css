@@ -64,7 +64,6 @@
     }
 }
 
-/* Queries for sub 800x600. Flexible layout  */
 @media screen and (max-width: 799px), screen and (max-height: 599px) {
 
     #sq1-box {
@@ -271,7 +270,6 @@
         font-size: 3vw;
     }
 
-    /* Special wide screen layout  */
     @media screen and (min-width: 830px) {
 
         .arnold-header {
@@ -346,7 +344,6 @@
 
 }
 
-/* Exposed one-off queries  */
 @media screen and (max-height: 520px) {
 
     .meter-timer {
