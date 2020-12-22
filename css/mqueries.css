@@ -1,7 +1,6 @@
 /* Media Queries for "The Arnold Game"  */
 
-@media screen and (max-width: 1063px),
-screen and (max-height: 767px) {
+@media screen and (max-width: 1063px), screen and (max-height: 767px) {
 
     .grid-container {
         grid-template-rows: 100px auto 150px 150px 120px;
@@ -65,10 +64,8 @@ screen and (max-height: 767px) {
     }
 }
 
-
 /* Queries for sub 800x600. Flexible layout  */
-@media screen and (max-width: 799px),
-screen and (max-height: 599px) {
+@media screen and (max-width: 799px), screen and (max-height: 599px) {
 
     #sq1-box {
         top: -5px;
@@ -94,13 +91,13 @@ screen and (max-height: 599px) {
     }
 
     .grid-container {
-        top: 0;
         grid-template-areas:
-            "header  header header  header"
-            "message  message message  message"
-            "score  square1 square2  meter"
-            "score  square3 square4  meter"
-            "level  instruct instruct  options";
+        "header  header header  header"
+        "message  message message  message"
+        "score  square1 square2  meter"
+        "score  square3 square4  meter"
+        "level  instruct instruct  options";
+        top: 0;
         grid-template-columns: 25% auto auto 25%;
         grid-template-rows: 22% auto 22% 22% 22%;
         grid-gap: 5px;
@@ -182,8 +179,7 @@ screen and (max-height: 599px) {
         opacity: 1;
     }
 
-    /* Meter buttons use "display: hidden;". As such full class definitions are necessary in mquery.css file  */
-    .meter-btn {
+    .meter-btn { /* Meter buttons use "display: hidden;". As such full class definitions are necessary in mquery.css file  */
         z-index: 0;
         position: absolute;
         left: 0;
@@ -206,25 +202,13 @@ screen and (max-height: 599px) {
     }
 
     .meter-btn-clear-co {
-        z-index: 0;
-        position: absolute;
-        left: 0;
-        right: -8px;
         bottom: 29%;
         width: calc(100% - 35px);
-        background-color: var(--blue);
-        transition: 2s background-color;
     }
 
     .meter-btn-replay-co {
-        z-index: 0;
-        position: absolute;
-        left: 0;
-        right: -8px;
         bottom: 7%;
         width: calc(100% - 35px);
-        background-color: var(--blue);
-        transition: 2s background-color;
     }
 
     .meter-btn-ghosted {
@@ -291,12 +275,6 @@ screen and (max-height: 599px) {
     @media screen and (min-width: 830px) {
 
         .arnold-header {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            left: 0;
-            right: 0;
-            margin: 0 auto;
             font-size: 80px;
             line-height: 80px;
         }
@@ -339,16 +317,14 @@ screen and (max-height: 599px) {
         }
 
         @media screen and (max-height: 575px) {
-
             #player1ScoreBox3 {
                 display: none;
             }
         }
-
     }
 
-
     @media screen and (max-width: 405px) {
+
         #player1HighScore {
             font-size: 20px;
         }
@@ -373,13 +349,12 @@ screen and (max-height: 599px) {
 /* Exposed one-off queries  */
 
 @media screen and (max-height: 520px) {
-    
+
     .meter-timer {
         margin-top: 0 !important;
         font-size: 40px !important;
         line-height: 40px !important;
     }
-
 }
 
 @media screen and (max-width: 430px) {
@@ -402,3 +377,6 @@ screen and (max-height: 599px) {
         font-size: 16vw;
     }
 }
+
+
+/* End of document */

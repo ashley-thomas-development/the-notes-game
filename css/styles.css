@@ -1,6 +1,7 @@
 /* CSS styles for "The Arnold Game"  */
 
 /* BASE STYLES */
+
 :root {
   --darkblue: #10375c;
   --blue: #588da8;
@@ -29,12 +30,7 @@ body {
   background-color: #090909;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+h1, h2, h3, h4, h5, h6 {
   margin: 0;
   font-family: blenny, sans-serif;
 }
@@ -46,7 +42,6 @@ p {
   font-weight: bold;
   letter-spacing: 1px;
 }
-
 
 /* GRID */
 
@@ -74,7 +69,6 @@ p {
 .grid-container > div {
   border-radius: 10px;
 }
-
 
 /* PLAY-STATE MODULE */
 
@@ -114,7 +108,6 @@ p {
   box-shadow: 0px 0px 8px var(--black), inset 0px 0px 3px var(--darkgrey);
   background-color: #ccc;
   overflow: hidden;
-
 }
 
 .ps-btn {
@@ -128,7 +121,6 @@ p {
   background-image: radial-gradient(rgba(0, 0, 0, 0), rgba(255, 255, 255, .1));
   box-shadow: -8px 5px 11px 3px var(--black);
 }
-
 
 /* INVITATION SCREEN */
 
@@ -171,7 +163,6 @@ p {
   padding: 10px 0;
   overflow-y: auto;
   right: -20px;
-
 }
 
 .invite-header {
@@ -209,7 +200,6 @@ p {
   background-color: rgba(0, 0, 0, 0);
 }
 
-
 /* DEATH SCREEN */
 
 .ps-death-pane {
@@ -224,15 +214,8 @@ p {
 }
 
 @keyframes deathPaneAnim {
-  0% {
-    width: 0vw;
-    height: 0vh;
-  }
-
-  100% {
-    width: 100vw;
-    height: 100vh;
-  }
+  0% { width: 0vw; height: 0vh; }
+  100% { width: 100vw; height: 100vh; }
 }
 
 .death-wrap {
@@ -254,17 +237,9 @@ p {
 }
 
 @keyframes deathFadeIn {
-  0% {
-    opacity: 0;
-  }
-
-  30% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
+  0% { opacity: 0; }
+  30% { opacity: 0; }
+  100% { opacity: 1; }
 }
 
 .btn-death-text {
@@ -287,19 +262,10 @@ p {
 }
 
 @keyframes deathBtnFadeIn {
-  0% {
-    opacity: 0;
-  }
-
-  45% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: .6
-  }
+  0% { opacity: 0; }
+  45% { opacity: 0; }
+  100% { opacity: .6; }
 }
-
 
 /* HEADER */
 
@@ -331,7 +297,6 @@ p {
   display: inline-block;  
 }
 
-
 /* MESSAGES PANE */
 
 .item2 {
@@ -354,17 +319,9 @@ p {
 }
 
 @keyframes msgFade {
-  0% {
-    opacity: 1;
-  }
-
-  66% {
-    opacity: 1;
-  }
-
-  100% {
-    opacity: 0;
-  }
+  0% { opacity: 1; }
+  66% { opacity: 1; }
+  100% { opacity: 0; }
 }
 
 .anim_wait-pop {
@@ -372,13 +329,8 @@ p {
 }
 
 @keyframes waitFade {
-  0% {
-    opacity: 1;
-  }
-
-  100% {
-    opacity: 0;
-  }
+  0% { opacity: 1; }
+  100% { opacity: 0; }
 }
 
 .anim_wait-pulse {
@@ -386,20 +338,10 @@ p {
 }
 
 @keyframes waitPulse {
-  0% {
-    opacity: 1;
-  }
-
-  50% {
-    opacity: 0.1;
-  }
- 
-
-  100% {
-    opacity: 1;
-  }
+  0% { opacity: 1; }
+  50% { opacity: 0.1; }
+  100% { opacity: 1; }
 }
-
 
 /* SCORES */
 
@@ -454,7 +396,6 @@ p {
   background-color: #666;
   box-shadow: 0px 0px 8px var(--black), inset 0px 0px 4px var(--darkgrey);
 }
-
 
 /* COLOR SQUARES */
 
@@ -540,25 +481,10 @@ p {
 }
 
 @keyframes sqAnimPulse {
-  0% {
-    width: 85%;
-    height: 85%;
-    opacity: 1;
-  }
-
-  50% {
-    width: 98%;
-    height: 98%;
-    opacity: .8
-  }
-
-  100% {
-    width: 90%;
-    height: 90%;
-    opacity: .6;
-  }
+  0% { width: 85%; height: 85%; opacity: 1; }
+  50% { width: 98%; height: 98%; opacity: .8 }
+  100% { width: 90%; height: 90%; opacity: .6; }
 }
-
 
 /* METER BOX */
 
@@ -583,9 +509,8 @@ p {
   width: calc(100% - 20px);
   height: 0%;
   max-height: calc(100% - 22px);
-  border-bottom: solid 2px var(--black);
-  border-right: solid 2px var(--black);
-  border-left: solid 2px var(--black);
+  border: solid 2px var(--black);
+  border-top: none;
   opacity: .8;
   background-color: purple;
   transition: 2s ease-in-out height;
@@ -702,49 +627,20 @@ p {
 }
 
 @keyframes slowPulse {
-  0% {
-    background-color: var(--blue)
-  }
-
-  35% {
-    background-color: var(--blue)
-  }
-
-  50% {
-    background-color: var(--yellow)
-  }
-
-  65% {
-    background-color: var(--blue)
-  }
-
-  100% {
-    background-color: var(--blue)
-  }
+  0% { background-color: var(--blue) }
+  35% { background-color: var(--blue) }
+  50% { background-color: var(--yellow) }
+  65% { background-color: var(--blue) }
+  100% { background-color: var(--blue) }
 }
 
 @keyframes fastPulse {
-  0% {
-    background-color: var(--blue)
-  }
-
-  35% {
-    background-color: var(--blue)
-  }
-
-  50% {
-    background-color: var(--yellow)
-  }
-
-  65% {
-    background-color: var(--blue)
-  }
-
-  100% {
-    background-color: var(--blue)
-  }
+  0% { background-color: var(--blue) }
+  35% { background-color: var(--blue) }
+  50% { background-color: var(--yellow) }
+  65% { background-color: var(--blue) }
+  100% { background-color: var(--blue) }
 }
-
 
 /* LEVEL COUNTER */
 
@@ -782,24 +678,11 @@ p {
 }
 
 @keyframes spin {
-  0% {
-    opacity: 1;
-  }
-
-  43% {
-    opacity: 0;
-  }
-
-  57% {
-    opacity: 0;
-  }
-
-  100% {
-    transform: rotate(360deg);
-    opacity: 1;
-  }
+  0% { opacity: 1; }
+  43% { opacity: 0; }
+  57% { opacity: 0; }
+  100% { transform: rotate(360deg); opacity: 1; }
 }
-
 
 /* INSTRUCTIONS */
 
@@ -827,19 +710,10 @@ p {
 }
 
 @keyframes instructAnimFade {
-  0% {
-    opacity: 1;
-  }
-
-  66% {
-    opacity: 1;
-  }
-
-  100% {
-    opacity: 0;
-  }
+  0% { opacity: 1; }
+  66% { opacity: 1; }
+  100% { opacity: 0; }
 }
-
 
 /* OPTIONS */
 
@@ -877,7 +751,6 @@ p {
   box-shadow: 0px 0px 8px var(--black), inset 0px 0px 4px var(--darkgrey);
   background-color: var(--pink);
 }
-
 
 /* DBLCLICK COLOR CHANGE */
 
