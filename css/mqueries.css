@@ -347,7 +347,6 @@
 }
 
 /* Exposed one-off queries  */
-
 @media screen and (max-height: 520px) {
 
     .meter-timer {
@@ -377,6 +376,5 @@
         font-size: 16vw;
     }
 }
-
 
 /* End of document */
