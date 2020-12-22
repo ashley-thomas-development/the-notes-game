@@ -409,49 +409,49 @@ function limitListenersOn() {
     instructions(5);
   });
 
-  clearCO.click(function () {
-    carryOverClick();
-    p1Pat = [];
-    time = 0;
-    instructions(4);
-  });
+  clearCO.click(function () { 
+    carryOverClick(); 
+    p1Pat = []; 
+    time = 0; 
+    instructions(4); 
+  }); 
 
-  replayCO.click(function () {
-    carryOverClick();
-    replay();
-    instructions(5);
-  });
+  replayCO.click(function () { 
+    carryOverClick(); 
+    replay(); 
+    instructions(5); 
+  }); 
 
 }
 
 
-/* CARRY-OVER LIMIT CHECK */
+/* CARRY-OVER LIMIT CHECK */ 
 
-function carryOverState() {
-  let coDisplayCheck = replayCO.attr("style");
+function carryOverState() { 
+  let coDisplayCheck = replayCO.attr("style"); 
 
-  if (coDisplayCheck == "display: block;") {
-    limitOn();
-    clearCO.css("display", "none");
-    replayCO.css("display", "none");
-  }
+  if (coDisplayCheck == "display: block;") { 
+    limitOn(); 
+    clearCO.css("display", "none"); 
+    replayCO.css("display", "none"); 
+  } 
 
-  meterReset();
+  meterReset(); 
 }
 
 
 /* LEVEL BOX*/
 
 function levelBox() {
-  $(".level-num").addClass("is_level-num-change");
+  $(".level-num").addClass("is_level-num-change"); 
 
-  setTimeout(function () {
-    $(".level-num").text(currentLevel);
-  }, 500);
+  setTimeout(function () { 
+    $(".level-num").text(currentLevel); 
+  }, 500); 
 
-  $(".level-num").on("animationend", function () {
-    $(this).removeClass("is_level-num-change");
-  });
+  $(".level-num").on("animationend", function () { 
+    $(this).removeClass("is_level-num-change"); 
+  }); 
 }
 
 
@@ -459,94 +459,94 @@ function levelBox() {
 
 function highScore() {
 
-  if (currentLevel === 1 && currentRound === 1) {
-    player1LastScore = 0;
+  if (currentLevel === 1 && currentRound === 1) { 
+    player1LastScore = 0; 
   }
 
-  if (player1LastScore > player1HighScore) {
-    player1HighScore = player1LastScore;
+  if (player1LastScore > player1HighScore) { 
+    player1HighScore = player1LastScore; 
   }
 
 }
 
 function scorePush() {
-  $("#player1ScoreBox1").text("Lvl " + player1LastScore);
-  $("#player1HighScore").text("Lvl " + player1HighScore);
-  pastScores();
-}
+  $("#player1ScoreBox1").text("Lvl " + player1LastScore); 
+  $("#player1HighScore").text("Lvl " + player1HighScore); 
+  pastScores(); 
+} 
 
-function pastScores() {
-  scoreHist.push(player1LastScore);
+function pastScores() { 
+  scoreHist.push(player1LastScore); 
 
-  if (scoreHist.length > 1) {
-    $("#player1ScoreBox2").text("Lvl " + scoreHist[scoreHist.length - 2]);
-  }
+  if (scoreHist.length > 1) { 
+    $("#player1ScoreBox2").text("Lvl " + scoreHist[scoreHist.length - 2]); 
+  } 
 
-  if (scoreHist.length > 2) {
-    $("#player1ScoreBox3").text("Lvl " + scoreHist[scoreHist.length - 3]);
-  }
+  if (scoreHist.length > 2) { 
+    $("#player1ScoreBox3").text("Lvl " + scoreHist[scoreHist.length - 3]); 
+  } 
 
-  if (scoreHist.length > 3) {
-    $("#player1ScoreBox4").text("Lvl " + scoreHist[scoreHist.length - 4]);
-  }
+  if (scoreHist.length > 3) { 
+    $("#player1ScoreBox4").text("Lvl " + scoreHist[scoreHist.length - 4]); 
+  } 
 
-  if (scoreHist.length > 4) {
-    $("#player1ScoreBox5").text("Lvl " + scoreHist[scoreHist.length - 5]);
-  }
+  if (scoreHist.length > 4) { 
+    $("#player1ScoreBox5").text("Lvl " + scoreHist[scoreHist.length - 5]); 
+  } 
 
-}
+} 
 
 
 /* MESSAGE PANE */
 
-function message(number) {
+function message(number) { 
 
-  switch (number) {
-    case 1:
+  switch (number) { 
+    case 1: 
 
-      if (currentLevel === 10 || currentLevel === 15 || currentLevel === 20 || currentLevel === 25) {
-        // do nothing 
-      } else {
-        $("#messages-pop").html("Wait for it <span class='anim_wait-pulse'>...</span>");
-        $("#messages-pop").css("opacity", "1");
-      }
+      if (currentLevel === 10 || currentLevel === 15 || currentLevel === 20 || currentLevel === 25) { 
+        // do nothing  
+      } else { 
+        $("#messages-pop").html("Wait for it <span class='anim_wait-pulse'>...</span>"); 
+        $("#messages-pop").css("opacity", "1"); 
+      } 
+ 
+      break; 
 
-      break;
-
-    default:
+    default: 
   }
 
-  // During Party Mode color shift is disabled
-  if (partyState == false) {
-    // do nothing
-  } else if (currentRound > 5) {
+  // During Party Mode color shift is disabled 
+  if (partyState == false) { 
+    // do nothing 
+  } else if (currentRound > 5) { 
 
-    if (Math.ceil(Math.random() * 8) === 1) {
-      $("#messages-pop").text("So sorry bout this...");
-      msgAnimate();
-      colorChgRound();
-    }
+    if (Math.ceil(Math.random() * 8) === 1) { 
+      $("#messages-pop").text("So sorry bout this..."); 
+      msgAnimate(); 
+      colorChgRound(); 
+    } 
 
   }
 
-  if (currentLevel === 10) {
-    $("#messages-pop").text("Level 10!");
-    msgAnimate();
+  if (currentLevel === 10) { 
+    $("#messages-pop").text("Level 10!"); 
+    msgAnimate(); 
+  } 
+
+  if (currentLevel === 15) { 
+    $("#messages-pop").text("You're Amazing!"); 
+    msgAnimate(); 
   }
 
-  if (currentLevel === 15) {
-    $("#messages-pop").text("You're Amazing!");
-    msgAnimate();
-  }
+  if (currentLevel === 20) { 
+    $("#messages-pop").text("Are you psychic?"); 
+    msgAnimate(); 
+  } 
 
-  if (currentLevel === 20) {
-    $("#messages-pop").text("Are you psychic?");
-    msgAnimate();
-  }
-
-  if (currentLevel === 25) {
-    $("#messages-pop").text("I need a break!");
-    msgAnimate();
+  if (currentLevel === 25) { 
+    $("#messages-pop").text("I need a break!"); 
+    msgAnimate(); 
   }
 
 }
