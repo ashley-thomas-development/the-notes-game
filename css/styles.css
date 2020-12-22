@@ -1,7 +1,5 @@
 /* CSS styles for "The Arnold Game"  */
 
-/* BASE STYLES */
-
 :root {
   --darkblue: #10375c;
   --blue: #588da8;
@@ -70,7 +68,7 @@ p {
   border-radius: 10px;
 }
 
-/* PLAY-STATE MODULE */
+/* PLAY-STATE */
 
 .ps {
   z-index: 100;
@@ -122,7 +120,7 @@ p {
   box-shadow: -8px 5px 11px 3px var(--black);
 }
 
-/* INVITATION SCREEN */
+/* INVITE SCREEN */
 
 .wide {
   width: 450px;
@@ -757,5 +755,6 @@ p {
 .is_color-pick {
   transition: background-color 7s, height 2s;
 }
+
 
 /* End of document */
