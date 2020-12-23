@@ -76,6 +76,7 @@ function limitOn() {
     replayBtn.css("display", "block");
     clearBtn.addClass("is_active");
     replayBtn.addClass("is_active");
+    meterReset();
 }
 
 
