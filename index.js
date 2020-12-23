@@ -21,3 +21,6 @@ let counter = "";
 let arnoldBank = [];
 let arnoldCounter = 0;
 let arnoldBool = false;
+
+
+/* END of document */

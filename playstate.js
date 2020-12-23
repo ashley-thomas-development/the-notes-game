@@ -1,4 +1,4 @@
-
+/* Playstate functions and stages for Arnold's Game */   
 
 /* SQUARE ANIMATION AND SOUND */
 
@@ -269,3 +269,5 @@ function deathScreen() {
   $(".ps-death-pane").addClass("anim_death-pane");
 }
 
+
+/* END of document */

@@ -1,23 +1,22 @@
-
+/* Color changing functions for Arnold's Game */
 
 /* CHALLENGE CONDITIONS */
 
-// Chance to change color of color square above lvl 5 on click
 function hardMode1() {
 
     if (currentRound > 5 && Math.ceil(Math.random() * 2) === 1) {
-      $(".anim_color-change").on("click", function () {
-        $(this).css("backgroundColor", colorGen);
-      });
+        $(".anim_color-change").on("click", function () {
+            $(this).css("backgroundColor", colorGen);
+        });
     } else {
-      $(".anim_color-change").off("click", function () {
-        $(this).css("backgroundColor", colorGen);
-      });
+        $(".anim_color-change").off("click", function () {
+            $(this).css("backgroundColor", colorGen);
+        });
     }
-  
-  }
-  
-  
+
+}
+
+
 /* COLOR CHANGING FUNCTIONS AND ASSIGNMENTS */
 
 // Random color generator
@@ -26,66 +25,66 @@ function colorGen() {
     let g = Math.floor(Math.random() * 256);
     let b = Math.floor(Math.random() * 256);
     let colorValue = "rgb(" + r + ", " + g + ", " + b + ")";
-  
+
     return colorValue;
-  }
-  
-  // Random color assignment for Hard/Party mode
-  function colorChgRound() {
+}
+
+// Random color assignment for Hard/Party mode
+function colorChgRound() {
     $(".anim_sq-glow").css("backgroundColor", colorGen);
-  }
-  
-  // Screen element color change click listeners
-  $("#scores").on("dblclick", function () {
+}
+
+// Screen element color change click listeners
+$("#scores").on("dblclick", function () {
     let elem = $(this);
     colorGrad(elem);
-  });
-  
-  // CANT GET THIS TO WORK - LISTENER WILL NOT GRAB PARENT ELEMENT OF TARGET
-  // $("#options").on("dblclick", function () {
-  //   let elem = $(this);
-  //   colorGrad(elem);
-  // });
-  
-  $("#level").on("dblclick", function () {
+});
+
+// CANT GET THIS TO WORK - LISTENER WILL NOT GRAB PARENT ELEMENT OF TARGET
+// $("#options").on("dblclick", function () {
+//   let elem = $(this);
+//   colorGrad(elem);
+// });
+
+$("#level").on("dblclick", function () {
     let elem = $(this);
     colorGrad(elem);
-  });
-  
-  $("#fill-bar").on("dblclick", function () {
+});
+
+$("#fill-bar").on("dblclick", function () {
     let elem = $(this);
     colorGrad(elem);
-  });
-  
-  $("#header").on("dblclick", function () {
+});
+
+$("#header").on("dblclick", function () {
     let elem = $(this);
     colorGrad(elem);
-  });
-  
-  // Change color and getComputedStyle during shift
-  function colorGrad(elem) {
+});
+
+// Change color and getComputedStyle during shift
+function colorGrad(elem) {
     elem.css("backgroundColor", colorGen);
     var colorShift = setInterval(function () {
-      elem.css("backgroundColor", colorGen);
+        elem.css("backgroundColor", colorGen);
     }, 7000);
-  
+
     elem.on("click", function () {
-      clearInterval(colorShift);
-      let x = event.currentTarget;
-      let y = getComputedStyle(x, null).getPropertyValue("background-color");
-      console.log(y);
-      elem.css("backgroundColor", y);
+        clearInterval(colorShift);
+        let x = event.currentTarget;
+        let y = getComputedStyle(x, null).getPropertyValue("background-color");
+        console.log(y);
+        elem.css("backgroundColor", y);
     });
-  }
-  
-  
-  /* COLOR RESET BUTTON */
-  
-  $(".color-reset-btn").mouseover(function () {
+}
+
+
+/* COLOR RESET BUTTON */
+
+$(".color-reset-btn").mouseover(function () {
     instructions(6);
-  });
-  
-  $(".color-reset-btn").click(function () {
+});
+
+$(".color-reset-btn").click(function () {
     $(".color-square1").css("backgroundColor", "red");
     $(".color-square2").css("backgroundColor", "green");
     $(".color-square3").css("backgroundColor", "yellow");
@@ -95,85 +94,85 @@ function colorGen() {
     $(".item8").css("backgroundColor", "var(--lightgrey)");
     $(".item9").css("backgroundColor", "var(--lightgrey)");
     // document.getElementById("options").style.backgroundColor = "var(--lightgrey)";
-  });
-  
-  
-  /* PARTY MODE OPTION */
-  
-  const colorSqArray = [$('#sq1-box'), $('#sq2-box'), $('#sq4-box'), $('#sq3-box')];
-  
-  let partyTimer;
-  let partyCounter = 0;
-  let partyState = true;
-  let interval = 1000;
-  
-  // Gradually increases rate of change of color squares 
-  function partyTimerInterval() {
-  
+});
+
+
+/* PARTY MODE OPTION */
+
+const colorSqArray = [$('#sq1-box'), $('#sq2-box'), $('#sq4-box'), $('#sq3-box')];
+
+let partyTimer;
+let partyCounter = 0;
+let partyState = true;
+let interval = 1000;
+
+// Gradually increases rate of change of color squares 
+function partyTimerInterval() {
+
     if (interval <= 2) {
-      interval = 1;
-      document.getElementById("partyBtn").innerText = "Max Speed!";
+        interval = 1;
+        document.getElementById("partyBtn").innerText = "Max Speed!";
     } else if (interval <= 50) {
-      interval = interval - 8;
+        interval = interval - 8;
     } else if (interval <= 200) {
-      interval = interval - 25;
+        interval = interval - 25;
     } else {
-      interval = 1100 - (currentLevel * 100);
+        interval = 1100 - (currentLevel * 100);
     }
-  
-  }
-  
-  function partyGameover() {
+
+}
+
+function partyGameover() {
     interval = 1000;
-  
+
     if (partyState == false) {
-      partyToggle();
+        partyToggle();
     }
-  
-  }
-  
-  function partyToggle() {
-  
+
+}
+
+function partyToggle() {
+
     if (partyState == true) {
-      partyStarted();
-      partyState = false;
-      document.getElementById("partyBtn").innerText = "Stop Party";
+        partyStarted();
+        partyState = false;
+        document.getElementById("partyBtn").innerText = "Stop Party";
     } else {
-      partysOver();
-      partyState = true;
-      document.getElementById("partyBtn").innerText = "Party Mode";
+        partysOver();
+        partyState = true;
+        document.getElementById("partyBtn").innerText = "Party Mode";
     }
-  
-  }
-  
-  function partyTempoUp() {
-  
+
+}
+
+function partyTempoUp() {
+
     if (partyState == false) {
-      partysOver();
-      partyTimerInterval();
-      partyStarted();
+        partysOver();
+        partyTimerInterval();
+        partyStarted();
     }
-  
-  }
-  
-  function partyShift() {
+
+}
+
+function partyShift() {
     colorSqArray[partyCounter].css("backgroundColor", colorGen);
-  
+
     if (partyCounter === 3) {
-      partyCounter = 0;
+        partyCounter = 0;
     } else {
-      partyCounter++;
+        partyCounter++;
     }
-  
-  }
-  
-  function partyStarted() {
+
+}
+
+function partyStarted() {
     partyTimer = setInterval(partyShift, interval)
-  }
-  
-  function partysOver() {
+}
+
+function partysOver() {
     clearInterval(partyTimer);
-  }
-  
-  
-  // || END of document 
+}
+
+
+/* || END of document */
