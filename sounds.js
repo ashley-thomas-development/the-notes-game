@@ -83,6 +83,37 @@ var arnoldSounds4 = [
     "sounds/arnold4/mars.mp3", 
 ]
 
+var arnoldSounds5 = [
+
+
+]
+
+var arnoldSounds6 = [
+
+    
+]
+
+var arnoldSounds7 = [
+
+    
+]
+
+var arnoldSounds8 = [
+
+    
+]
+
+var arnoldSounds9 = [
+
+    
+]
+
+var arnoldSounds10 = [
+
+    
+]
+
+
 arnoldBank = [arnoldSounds, arnoldSounds2, arnoldSounds3, arnoldSounds4, ];
 
 var marioSounds = [
