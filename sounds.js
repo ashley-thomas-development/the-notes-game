@@ -83,13 +83,13 @@ var arnoldSounds4 = [
     "sounds/arnold4/mars.mp3", 
 ]
 
-var arnoldSounds5 = [
-    "sounds/arnold5/i-work-alone.mp3",
-    "sounds/arnold5/dont-you-understand.mp3",
-    "sounds/arnold5/police-officer.mp3",
-    "sounds/arnold5/whats-wrong-with-that.mp3",
-    "sounds/arnold5/i-was-wrong-im-sorry.mp3",
-]
+// var arnoldSounds5 = [
+//     "sounds/arnold5/i-work-alone.mp3",
+//     "sounds/arnold5/dont-you-understand.mp3",
+//     "sounds/arnold5/police-officer.mp3",
+//     "sounds/arnold5/whats-wrong-with-that.mp3",
+//     "sounds/arnold5/i-was-wrong-im-sorry.mp3",
+// ]
 
 var arnoldSounds6 = [
 
@@ -117,7 +117,7 @@ var arnoldSounds10 = [
 ]
 
 
-arnoldBank = [arnoldSounds, arnoldSounds2, arnoldSounds3, arnoldSounds4, arnoldSounds5 ];
+arnoldBank = [arnoldSounds, arnoldSounds2, arnoldSounds3, arnoldSounds4, ];
 
 var marioSounds = [
     "sounds/mario/smb_1-up.wav", 
