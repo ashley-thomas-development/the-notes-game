@@ -187,8 +187,8 @@ var starTrekSounds = [
     "sounds/tng/computerbeep_4.mp3", 
     "sounds/tng/computerbeep_59.mp3", 
     "sounds/tng/computerbeep_42.mp3", 
-    "sounds/tng/autodestructsequencearmed_ep.mp3"
+    "sounds/tng/autodestructsequencearmed_ep.mp3",
 ]
 
-                          
+
 /* END of document */
