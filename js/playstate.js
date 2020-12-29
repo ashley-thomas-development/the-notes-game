@@ -129,18 +129,24 @@ function beginGame() {
 function arnoldsTurn() {
   let newNumber = Math.ceil(Math.random() * 4);
 
+  // prevent Arnold from being mean too early in the game
   if (player1Sounds == arnoldSounds && currentLevel < 6 && newNumber === 3) {
     newNumber = 1;
   }
 
-  sPat.push(newNumber);
-  sqId = "sq" + newNumber;
-  squareActive();
-
-  setTimeout(function () {
-    playerTurn();
-  }, 200);
-
+  // prevent 3 consecutive squares from occuring in the pattern
+  if ( newNumber == sPat[sPat.length-1] && newNumber == sPat[sPat.length-2] ) {
+    arnoldsTurn();
+  } else {
+    sPat.push(newNumber);
+    sqId = "sq" + newNumber;
+    squareActive();
+    
+    setTimeout(function () {
+      playerTurn();
+    }, 200);
+    
+  }
 }
 
 

@@ -212,7 +212,6 @@ p {
 }
 
 
-
 /* DEATH SCREEN */
 
 .ps-death-pane {
@@ -220,6 +219,7 @@ p {
   height: 100vh;
   width: 100vw;
   background-color: black;
+  border: 15px dotted red;
 }
 
 .anim_death-pane {
@@ -500,7 +500,7 @@ p {
 
 @keyframes sqAnimPulse {
   0% { width: 85%; height: 85%; opacity: 1; }
-  50% { width: 98%; height: 98%; opacity: .8 }
+  50% { width: 100%; height: 100%; opacity: .9 }
   100% { width: 90%; height: 90%; opacity: .6; }
 }
 

@@ -126,7 +126,7 @@ var arnoldSounds10 = [
 
 var arnoldSounds11 = [
     "sounds/arnoldBank11/do-you-hear-what-i-said.mp3",
-    "sounds/arnoldBank11/nice-to-meet-you.mp3",
+    "sounds/arnoldBank6/stop-whining.mp3",
     "sounds/arnoldBank11/you-lack-discipline.mp3",
     "sounds/arnoldBank11/you.mp3",
     "sounds/arnoldBank11/you-are-mine-now.mp3",
