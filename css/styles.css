@@ -118,6 +118,7 @@ p {
   margin: 20px auto 0;
   background-image: radial-gradient(rgba(0, 0, 0, 0), rgba(255, 255, 255, .1));
   box-shadow: -8px 5px 11px 3px var(--black);
+  cursor: pointer;
 }
 
 /* INVITE SCREEN */
@@ -293,6 +294,7 @@ p {
 
 #forceArnold {
   display: inline-block;  
+  cursor: pointer;
 }
 
 /* MESSAGES */
@@ -401,6 +403,7 @@ p {
   grid-area: square1;
   position: relative;
   top: 25px;
+  cursor: pointer;
 }
 
 .color-square1 {
@@ -419,6 +422,7 @@ p {
   grid-area: square2;
   position: relative;
   top: 25px;
+  cursor: pointer;
 }
 
 .color-square2 {
@@ -437,6 +441,7 @@ p {
   grid-area: square3;
   position: relative;
   top: 25px;
+  cursor: pointer;
 }
 
 .color-square3 {
@@ -455,6 +460,7 @@ p {
   grid-area: square4;
   position: relative;
   top: 25px;
+  cursor: pointer;
 }
 
 .color-square4 {
@@ -560,6 +566,7 @@ p {
   color: var(--black);
   box-shadow: 4px 3px 4px #333;
   transition: 1s opacity;
+  cursor: pointer;
 }
 
 .meter-btn-ghosted {
@@ -734,6 +741,7 @@ p {
   line-height: 1;
   box-shadow: 0px 0px 4px var(--darkgrey), inset 0px 0px 2px var(--darkgrey);
   background-color: lightblue;
+  cursor: pointer;
 }
 
 .color-reset-btn {
@@ -748,6 +756,7 @@ p {
   line-height: 1;
   box-shadow: 0px 0px 8px var(--black), inset 0px 0px 4px var(--darkgrey);
   background-color: var(--pink);
+  cursor: pointer;
 }
 
 /* DBLCLICK COLOR CHANGE */

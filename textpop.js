@@ -66,7 +66,7 @@ function instructions(number) {
             break;
 
         case 2:
-            $("#instructions-pop").text("Get Ready Milly!");
+            $("#instructions-pop").text("Get Ready!");
             instructFade();
             break;
 

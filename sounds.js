@@ -2,17 +2,9 @@
 
 /* SOUNDS ARRAYS AND PICKER */
 
-function soundBankPicker() {
-
-    if (Math.ceil(Math.random() * 3) === 1) { 
-        player1Sounds = starTrekSounds; 
-    } else if (Math.ceil(Math.random() * 3) === 2) { 
-        player1Sounds = arnoldSounds; 
-    } else { 
-        player1Sounds = marioSounds; 
-    } 
-
-} 
+function arnoldBankPicker() {
+    player1Sounds = arnoldBank[Math.floor(Math.random() * 15)];
+}
 
 function forceArnold() { 
     player1Sounds = arnoldSounds; 
@@ -49,6 +41,7 @@ $("#forceArnold").on("click", function () {
         arnoldCounter++;
     }
 
+    $("#forceArnold").css("color", colorGen);
 });
 
 var arnoldSounds = [
@@ -86,7 +79,7 @@ var arnoldSounds4 = [
 var arnoldSounds5 = [
     "sounds/arnoldBank5/boris.mp3",
     "sounds/arnoldBank5/hauser.mp3",
-    "sounds/arnoldBank5/quaid.mp3",
+    "sounds/arnoldBank5/quaid-2.mp3",
     "sounds/arnoldBank5/who-is-it-this-time.mp3",
     "sounds/arnoldBank5/get-ready-for-the-big-surprise.mp3"
 ]
@@ -108,11 +101,11 @@ var arnoldSounds7 = [
 ]
 
 var arnoldSounds8 = [
-    "sounds/arnoldBank8/first-i-would-like-to-get-to-know-you.mp3",
+    "sounds/arnoldBank8/just-doing-my-job.mp3",
     "sounds/arnoldBank8/im-a-construction-worker.mp3",
     "sounds/arnoldBank8/im-a-police-officer.mp3",
     "sounds/arnoldBank8/im-a-terminator.mp3",
-    "sounds/arnoldBank8/just-doing-my-job.mp3"
+    "sounds/arnoldBank8/first-i-would-like-to-get-to-know-you.mp3"
 ]
 
 var arnoldSounds9 = [
@@ -159,7 +152,7 @@ var arnoldSounds13 = [
 var arnoldSounds14 = [
     "sounds/arnoldBank14/dont-worry.mp3",
     "sounds/arnoldBank14/immediately.mp3",
-    "sounds/arnoldBank14/quaid.mp3",
+    "sounds/arnoldBank14/douglas-quaid.mp3",
     "sounds/arnoldBank14/yeah.mp3",
     "sounds/arnoldBank14/tan.mp3",
 ]
@@ -173,6 +166,23 @@ var arnoldSounds15 = [
 ]
 
 arnoldBank = [arnoldSounds, arnoldSounds2, arnoldSounds3, arnoldSounds4, arnoldSounds5, arnoldSounds6, arnoldSounds7, arnoldSounds8, arnoldSounds9, arnoldSounds10, arnoldSounds11, arnoldSounds12, arnoldSounds13, arnoldSounds14, arnoldSounds15 ];
+
+/*
+
+// Potential in future to implement other 90's kid soundbanks such as... 
+
+function soundBankPicker() {
+
+    if (Math.ceil(Math.random() * 3) === 1) { 
+        player1Sounds = starTrekSounds; 
+    } else if (Math.ceil(Math.random() * 3) === 2) { 
+        player1Sounds = arnoldSounds; 
+    } else { 
+        player1Sounds = marioSounds; 
+    } 
+
+} 
+
 
 var marioSounds = [
     "sounds/mario/smb_1-up.wav", 
@@ -190,5 +200,6 @@ var starTrekSounds = [
     "sounds/tng/autodestructsequencearmed_ep.mp3",
 ]
 
+*/
 
 /* END of document */

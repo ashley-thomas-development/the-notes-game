@@ -1,4 +1,5 @@
-/* Playstate functions and stages for Arnold's Game */   
+/* Playstate functions and stages for Arnold's Game */
+
 
 /* SQUARE ANIMATION AND SOUND */
 
@@ -13,30 +14,32 @@ function squareActive() {
   var sq2Sound = new Audio(player1Sounds[1]);
   var sq3Sound = new Audio(player1Sounds[2]);
   var sq4Sound = new Audio(player1Sounds[3]);
+  
+
 
   switch (sqId) {
     case "sq1":
-      currentAudio = sq1Sound;
       sq1Sound.load();
       sq1Sound.play();
+      currentAudio = sq1Sound;
       break;
 
     case "sq2":
-      currentAudio = sq2Sound;
       sq2Sound.load();
       sq2Sound.play();
+      currentAudio = sq2Sound;
       break;
 
     case "sq3":
-      currentAudio = sq3Sound;
       sq3Sound.load();
       sq3Sound.play();
+      currentAudio = sq3Sound;
       break;
 
     case "sq4":
-      currentAudio = sq4Sound;
       sq4Sound.load();
       sq4Sound.play();
+      currentAudio = sq4Sound;
       break;
 
     default:
@@ -184,6 +187,9 @@ function patCheck() {
   if (sPat[sPat.length - (sPat.length - p1Pat.length) - 1] === p1Pat[p1Pat.length - 1] && p1Pat.length === sPat.length) {
     player1LastScore = p1Pat.length;
     timerStop();
+    if (arnoldBool == true) {
+      arnoldModeSwitch();
+    }    
     nextTurn();
     meterFill();
   } else if (sPat[sPat.length - (sPat.length - p1Pat.length) - 1] === p1Pat[p1Pat.length - 1]) {
@@ -195,7 +201,7 @@ function patCheck() {
     currentRound++;
     hardMode1();
   } else {
-    currentAudio.pause();
+    currentAudio.pause(); // currently not working. 
     gameOver();
   }
 
@@ -221,7 +227,7 @@ function nextTurn() {
   setTimeout(function () {
     arnoldsTurn();
     waitAnimate();
-  }, 3000 + (Math.ceil(Math.random() * 4) * 1000));
+  }, 2000 + (Math.ceil(Math.random() * 3) * 1000));
 
 }
 
@@ -259,12 +265,14 @@ $(".btn-death").click(function () {
   $(".ps-invite-pane").css("display", "block");
   $(".ps-backdrop").css("display", "block");
   $(".ps-death-pane").removeClass("anim_death-pane");
-  soundBankPicker();
+  arnoldBankPicker();
 });
 
 function deathScreen() {
   let gameOver = new Audio(player1Sounds[4]);
-  gameOver.play();
+  setTimeout(function () {
+    gameOver.play();
+  }, 250);
   $(".ps-death-pane").css("display", "block");
   $(".ps-death-pane").addClass("anim_death-pane");
 }

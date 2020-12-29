@@ -72,7 +72,6 @@ function colorGrad(elem) {
         clearInterval(colorShift);
         let x = event.currentTarget;
         let y = getComputedStyle(x, null).getPropertyValue("background-color");
-        console.log(y);
         elem.css("backgroundColor", y);
     });
 }
@@ -93,7 +92,9 @@ $(".color-reset-btn").click(function () {
     $(".item3").css("backgroundColor", "var(--lightgrey)");
     $(".item8").css("backgroundColor", "var(--lightgrey)");
     $(".item9").css("backgroundColor", "var(--lightgrey)");
-    // document.getElementById("options").style.backgroundColor = "var(--lightgrey)";
+    if ( arnoldBool == false ) {
+        $("#forceArnold").css("color", "var(--theme-blue)");
+    }
 });
 
 
