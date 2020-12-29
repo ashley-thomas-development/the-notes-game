@@ -40,7 +40,7 @@ $("#scores").on("dblclick", function () {
     colorGrad(elem);
 });
 
-// CANT GET THIS TO WORK - LISTENER WILL NOT GRAB PARENT ELEMENT OF TARGET
+// NOT WORKING - LISTENER WILL NOT GRAB PARENT ELEMENT OF TARGET
 // $("#options").on("dblclick", function () {
 //   let elem = $(this);
 //   colorGrad(elem);

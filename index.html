@@ -75,14 +75,17 @@
 
   <div class="grid-container ">
 
+    <!-- HEADER -->
     <div id="header" class="item1 is_color-pick">
       <h1 class="arnold-header">The <span id="forceArnold">Arnold</span> Game</h1>
     </div>
 
-    <div id="messsages" class="item2">
+    <!-- MESSAGES -->
+    <div class="item2">
       <p id="messages-pop"></p>
     </div>
 
+    <!-- SCORE BOX -->
     <div id="scores" class="item3 is_color-pick">
       <div class="score-box-border"></div>
       <h3 class="score-header">High Score</h3>
@@ -102,7 +105,8 @@
     <div id="sq3-box" class="item6 color-square3 anim_sq-glow"></div>
     <!-- END -->
 
-    <div class="item8 meter-box">
+    <!-- METER -->
+    <div id="meter" class="item8 meter-box">
       <div id="fill-bar" class="meter-fill-bar is_color-pick"></div>
       <h3 class="meter-header">Meter</h3>
       <div class="meter-fill-bar-border"></div>
@@ -115,7 +119,8 @@
       <div class="meter-btn-ghosted ghosted-replay">Replay</div>
     </div>
 
-    <div id="level" class="item9 level-box is_color-pick">
+    <!-- LEVEL BOX -->
+    <div id="level" class="item9 is_color-pick">
       <div class="level-wrap">
         <div>Your</div>
         <div class="level-num">0</div>
@@ -123,10 +128,12 @@
       </div>
     </div>
 
+    <!-- INSTRUCTIONS -->
     <div class="item10 instruct-pane">
       <p id="instructions-pop"></p>
     </div>
 
+    <!-- OPTIONS -->
     <div id="options" class="item11 is_color-pick">
       <button id="partyBtn" type="button" onclick="partyToggle()">Party Mode</button>
       <button class="color-reset-btn">Color Reset</button>
@@ -136,12 +143,12 @@
 
   <!-- END MAIN GRID -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="index.js" charset="utf-8"></script>
-  <script src="sounds.js" charset="utf-8"></script>
-  <script src="playstate.js" charset="utf-8"></script>
-  <script src="modules.js" charset="utf-8"></script>
-  <script src="textpop.js" charset="utf-8"></script>
-  <script src="color.js" charset="utf-8"></script>
+  <script src="js/index.js" charset="utf-8"></script>
+  <script src="js/sounds.js" charset="utf-8"></script>
+  <script src="js/modules.js" charset="utf-8"></script>
+  <script src="js/playstate.js" charset="utf-8"></script>
+  <script src="js/textpop.js" charset="utf-8"></script>
+  <script src="js/color.js" charset="utf-8"></script>
 </body>
 
 </html>
