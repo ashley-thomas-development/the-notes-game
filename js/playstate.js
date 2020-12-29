@@ -129,6 +129,11 @@ function beginGame() {
 function arnoldsTurn() {
   let newNumber = Math.ceil(Math.random() * 4);
 
+  // force Arnold to greet you politely
+  if (player1Sounds == arnoldSounds && currentLevel == 1 ) {
+    newNumber = 1;
+  }
+
   // prevent Arnold from being mean too early in the game
   if (player1Sounds == arnoldSounds && currentLevel < 6 && newNumber === 3) {
     newNumber = 1;
@@ -207,7 +212,7 @@ function patCheck() {
     currentRound++;
     hardMode1();
   } else {
-    currentAudio.pause(); // currently not working. 
+    currentAudio.pause(); // currently not working
     gameOver();
   }
 
