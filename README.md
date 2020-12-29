@@ -15,7 +15,7 @@ The Arnold Game
 * [Contact](#contact)
 
 ## General info
-Hopefully this makes you laugh and pull out a classic Arnold flick. 
+Hopefully this makes you laugh and pull out a classic Arnold flick or a set of dumbbells.
 
 ## Screenshots
 ![Example screenshot](/images/readme/screenshot.png)
@@ -34,9 +34,9 @@ Hopefully this makes you laugh and pull out a classic Arnold flick.
 * "Party Mode" should activate all color changing elements, as well as "Arnold Mode".
 
 ## To-do list:
-* Improve mobile appearance. Looks like at went through an Arnold action scene.
+* Improve mobile appearance. Looks like it went through an Arnold action scene.
 * Refine and expand arnold sound-banks. Need some from True Lies. 
-* Ensure color shifts during Party Mode or challenge conditions are different enough to clearly change.
+* Ensure color shifts during "Party Mode" or challenge conditions are different enough to clearly change.
 * Color shift sometimes looks poor under the button's slight gloss effect.
 * Potentially add alternate 90's kid soundbanks such as Mario, TNG, or FF7.
 * Add a command-line only mode enabling Arnold NSFW sound-banks.
