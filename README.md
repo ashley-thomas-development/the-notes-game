@@ -17,7 +17,7 @@ Known Issues
 Add more general information about project. What the purpose of the project is? Motivation?
 
 ## Screenshots
-![Example screenshot](.images/img/screenshot.png)
+![Example screenshot](/images/readme/screenshot.png)
 
 ## Technologies
 * HTML5
