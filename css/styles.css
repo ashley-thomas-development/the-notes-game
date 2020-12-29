@@ -115,7 +115,7 @@ p {
   padding: 10px;
   border: solid 2px var(--black);
   border-radius: 15px;
-  margin: 20px auto 0;
+  margin: 25px auto 30px;
   background-image: radial-gradient(rgba(0, 0, 0, 0), rgba(255, 255, 255, .1));
   box-shadow: -8px 5px 11px 3px var(--black);
   cursor: pointer;
@@ -129,7 +129,7 @@ p {
 }
 
 .ps-invite-pane {
-  position: absolute;
+  position: fixed;
   top: 50%;
   transform: translateY(-50%);
   left: 0;
@@ -137,7 +137,7 @@ p {
   margin: 0 auto;
   display: block;
   width: 85%;
-  height: 85%;
+  height: 85vh;
   padding: 10px 0;
   border-radius: 10px;
   opacity: 1;
@@ -147,6 +147,7 @@ p {
 
 .invite-inner-wrap {
   max-width: 85%;
+  padding: 0 80px 0 50px;
   margin: 15px auto 20px;
 }
 
@@ -189,7 +190,7 @@ p {
 .invite-subhead {
   margin: 10px auto 4px;
   text-align: left;
-  font-size: 20px;
+  font-size: 24px;
   color: var(--darkgrey);
   letter-spacing: .5px;
 }
@@ -198,6 +199,19 @@ p {
   height: 300px;
   background-color: rgba(0, 0, 0, 0);
 }
+
+.ps-scroll-icon {
+  position: absolute;
+  bottom: 0%;
+  transform: translateY(-50%);
+  right: 20px;
+  background-image: url(../images/scroll-icon.png);
+  width: 52px;
+  height: 102px;
+  opacity: .8;
+}
+
+
 
 /* DEATH SCREEN */
 

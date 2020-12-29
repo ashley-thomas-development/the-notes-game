@@ -14,7 +14,7 @@ Known Issues
 * [Contact](#contact)
 
 ## General info
-Add more general information about project. What the purpose of the project is? Motivation?
+Hopefully this makes you laugh and pull out a classic Arnold flick. 
 
 ## Screenshots
 ![Example screenshot](/images/readme/screenshot.png)
@@ -42,10 +42,12 @@ To-do list:
 * Arnold span tag is too large, needs to be refactored as button and appropriate style applied throughout queries.
 
 ## Status
-Project is: _in progress_, _finished_, _no longer continue_ and why?
+Project is: _in progress_ 
 
 ## Inspiration
-Add here credits. Project inspired by..., based on...
+I took Angela Yu's tutorial course and as a challenge was asked to make a memory game. I did not follow the directions - this is what I came up with.
+
+Thanks for all the great memories Mr. Schwarzenegger! 
 
 ## Contact
-Created by (https://www.rideoutweb.com/ - feel free to contact me!
+Created by (https://www.rideoutweb.com/) - feel free to contact me!

@@ -3,7 +3,7 @@
 /* SOUNDS ARRAYS AND PICKER */
 
 function arnoldBankPicker() {
-    player1Sounds = arnoldBank[Math.floor(Math.random() * 15)];
+    player1Sounds = arnoldBank[Math.floor(Math.random() * 14)];
 }
 
 function forceArnold() { 
@@ -157,15 +157,9 @@ var arnoldSounds14 = [
     "sounds/arnoldBank14/tan.mp3",
 ]
 
-var arnoldSounds15 = [
-    "sounds/arnoldBank15/and-no-extra-charge.mp3",
-    "sounds/arnoldBank15/ive-only-one-more-q.mp3",
-    "sounds/arnoldBank15/wait-hold-on.mp3",
-    "sounds/arnoldBank15/what-wrong-with-that.mp3",
-    "sounds/arnoldBank15/what-the-hell-did-you-do.mp3"
-]
 
-arnoldBank = [arnoldSounds, arnoldSounds2, arnoldSounds3, arnoldSounds4, arnoldSounds5, arnoldSounds6, arnoldSounds7, arnoldSounds8, arnoldSounds9, arnoldSounds10, arnoldSounds11, arnoldSounds12, arnoldSounds13, arnoldSounds14, arnoldSounds15 ];
+
+arnoldBank = [arnoldSounds, arnoldSounds2, arnoldSounds3, arnoldSounds4, arnoldSounds5, arnoldSounds6, arnoldSounds7, arnoldSounds8, arnoldSounds9, arnoldSounds10, arnoldSounds11, arnoldSounds12, arnoldSounds13, arnoldSounds14 ];
 
 /*
 
