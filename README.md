@@ -1,14 +1,15 @@
 > An Arnold memory game for the 90's kid in you.
+![Example screenshot](/images/readme/arnold-game.png)
 
 # Project Name
 The Arnold Game
 
 ## Table of contents
 * [General info](#general-info)
-* [Screenshots](#screenshots)
 * [Technologies](#technologies)
 * [Features](#features)
 * [Todo List:](#todo-list)
+* [Screenshots](#screenshots)
 * [Known Issues](#known-issues)
 * [Status](#status)
 * [Inspiration](#inspiration)
@@ -16,11 +17,6 @@ The Arnold Game
 
 ## General info
 Hopefully this makes you laugh and pull out a classic Arnold flick or a set of dumbbells. The game is Safe For Work (SFW) and contains no profanity.
-
-## Screenshots
-![Example screenshot](/images/readme/arnold-game.png)
-![Example screenshot](/images/readme/arnold-game-color.png)
-![Example screenshot](/images/readme/arnold-game-mobile.png)
 
 ## Technologies
 * HTML5
@@ -39,9 +35,14 @@ Hopefully this makes you laugh and pull out a classic Arnold flick or a set of d
 * "Party Mode" should activate all color changing elements, as well as "Arnold Mode".
 * Refine and expand arnold sound-banks. Need some from True Lies. 
 * Ensure color shifts during "Party Mode" or challenge conditions are different enough to clearly change.
-* Color shift sometimes looks poor under the button's slight gloss effect.
+* Color shift to dark colors look bad under the button's slight gloss effect.
 * Potentially add alternate 90's kid soundbanks such as Mario, TNG, or FF7.
 * Possibly add a command-line only mode enabling Arnold NSFW sound-banks.
+
+## Screenshots
+![Example screenshot](/images/readme/arnold-game.png)
+![Example screenshot](/images/readme/arnold-game-color.png)
+![Example screenshot](/images/readme/arnold-game-mobile.png)
 
 ## Known Issues
 * Upon enabling color changing functionality on the "Options" box, the "Color Reset" function can't access the "Options" box to complete the color reset. 
@@ -51,7 +52,7 @@ Hopefully this makes you laugh and pull out a classic Arnold flick or a set of d
 * Meter should reset at 999 to prevent display error.
 
 ## Status
-Project is: _in progress_.
+Project is: _in production_.
 
 ## Inspiration
 I took Angela Yu's complete 2020 web development course. The first independent project was a memory game, we were asked to complete a final result as a challenge. I did not follow the directions - this is what I came up with.
