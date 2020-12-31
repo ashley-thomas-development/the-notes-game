@@ -6,10 +6,10 @@
 "The Arnold Game"
 
 ## Table of contents
-* [General info](#general-info)
+* [General Info](#general-info)
 * [Technologies](#technologies)
 * [Features](#features)
-* [Todo List:](#todo-list)
+* [Todo List](#todo-list)
 * [Known Issues](#known-issues)
 * [Status](#status)
 * [Inspiration](#inspiration)
@@ -57,7 +57,7 @@ I took Angela Yu's complete 2020 web development course. The first independent p
 
 Thanks to 101soundboards.com for providing the download links to these great sound-clips.
 
-Thanks for all the great memories and inspiration Mr. Schwarzenegger! You've helped keep me healthy and made me laugh many times. 
+Thanks for all the great memories and inspiration Mr. Schwarzenegger! You've helped keep me healthy and made me laugh many times.
 
 ## Contact
 Created by William Rideout (https://www.rideoutweb.com/) - feel free to contact me!
