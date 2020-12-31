@@ -113,8 +113,10 @@
     }
 
     .wide {
-        width: 80%;
-        height: 60px;
+        position: relative;
+        left: -13px;
+        width: 50%;
+        height: 100px;
     }
 
     .invite-header {
@@ -372,6 +374,25 @@
     .death-header {
         font-size: 16vw;
     }
+
 }
+
+@media screen and (max-width: 650px) {
+
+    .invite-inner-wrap {
+        padding-left: 0px;
+        padding-right: 32px;
+    }
+
+}
+
+@media screen and (max-width: 450px) {
+
+    .ps-scroll-icon {
+        left: 2px;
+    }
+}
+
+
 
 /* End of document */
