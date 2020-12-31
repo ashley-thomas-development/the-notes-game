@@ -5,7 +5,7 @@
 # Project Name
 "The Arnold Game"
 
-## Table of contents
+## Table of Contents
 * [General Info](#general-info)
 * [Technologies](#technologies)
 * [Features](#features)
@@ -15,7 +15,7 @@
 * [Inspiration](#inspiration)
 * [Contact](#contact)
 
-## General info
+## General Info
 Hopefully this makes you laugh and pull out a classic Arnold flick or a set of dumbbells. The game is Safe For Work (SFW) and contains no profanity, though Arnold can be a bit rude at times. Functional on mobile devices. Requires audio enabled.
 
 ## Technologies
@@ -30,10 +30,12 @@ Hopefully this makes you laugh and pull out a classic Arnold flick or a set of d
 * Customizable color changing user interface.
 * High scores and past scores.
 * Playable on any device.
+
 ![Example screenshot](/images/readme/arnold-game-color.png)
+
 ![Example screenshot](/images/readme/arnold-game-mobile.png)
 
-## To-do list:
+## To-do List:
 * Improve mobile/flexible layout.
 * "Party Mode" should activate all color changing elements, as well as "Arnold Mode".
 * Refine and expand arnold sound-banks. Need some from True Lies. 
