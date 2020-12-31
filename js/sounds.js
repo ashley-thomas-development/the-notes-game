@@ -148,7 +148,6 @@ var arnoldSounds13 = [
     "sounds/arnoldBank13/part-of-the-delightful-vacation.mp3",
 ]
 
-
 var arnoldSounds14 = [
     "sounds/arnoldBank14/dont-worry.mp3",
     "sounds/arnoldBank14/immediately.mp3",
@@ -156,8 +155,6 @@ var arnoldSounds14 = [
     "sounds/arnoldBank14/yeah.mp3",
     "sounds/arnoldBank14/tan.mp3",
 ]
-
-
 
 arnoldBank = [arnoldSounds, arnoldSounds2, arnoldSounds3, arnoldSounds4, arnoldSounds5, arnoldSounds6, arnoldSounds7, arnoldSounds8, arnoldSounds9, arnoldSounds10, arnoldSounds11, arnoldSounds12, arnoldSounds13, arnoldSounds14 ];
 

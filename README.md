@@ -22,7 +22,6 @@ Hopefully this makes you laugh and pull out a classic Arnold flick or a set of d
 ![Example screenshot](/images/readme/arnold-game-color.png)
 ![Example screenshot](/images/readme/arnold-game-mobile.png)
 
-
 ## Technologies
 * HTML5
 * CSS3

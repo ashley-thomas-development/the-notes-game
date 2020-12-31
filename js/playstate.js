@@ -1,6 +1,5 @@
 /* Playstate functions and stages for Arnold's Game */
 
-
 /* SQUARE ANIMATION AND SOUND */
 
 function squareActive() {
@@ -15,8 +14,6 @@ function squareActive() {
   var sq3Sound = new Audio(player1Sounds[2]);
   var sq4Sound = new Audio(player1Sounds[3]);
   
-
-
   switch (sqId) {
     case "sq1":
       sq1Sound.load();
