@@ -45,7 +45,7 @@ $("#forceArnold").on("click", function () {
 });
 
 var arnoldSounds = [
-    "sounds/arnoldBank1/how-are-you.mp3", 
+    "sounds/arnoldBank1/how-are-u.mp3", 
     "sounds/arnoldBank1/howdy.mp3", 
     "sounds/arnoldBank1/idiot.mp3", 
     "sounds/arnoldBank1/sorry-2.mp3", 

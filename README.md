@@ -15,10 +15,13 @@ The Arnold Game
 * [Contact](#contact)
 
 ## General info
-Hopefully this makes you laugh and pull out a classic Arnold flick or a set of dumbbells.
+Hopefully this makes you laugh and pull out a classic Arnold flick or a set of dumbbells. The game is Safe For Work (SFW) and contains no profanity.
 
 ## Screenshots
-![Example screenshot](/images/readme/screenshot.png)
+![Example screenshot](/images/readme/arnold-game.png)
+![Example screenshot](/images/readme/arnold-game-color.png)
+![Example screenshot](/images/readme/arnold-game-mobile.png)
+
 
 ## Technologies
 * HTML5
@@ -27,19 +30,19 @@ Hopefully this makes you laugh and pull out a classic Arnold flick or a set of d
 * jQuery - 3.5.1
 
 ## Features
-* Color changing user interface.
-* High scores and past scores.
 * A limit-break rewarding fast memory recall.
 * A difficulty mode - "Party Mode".
-* "Party Mode" should activate all color changing elements, as well as "Arnold Mode".
+* Customizable color changing user interface.
+* High scores and past scores.
 
 ## To-do list:
 * Improve mobile appearance. Looks like it went through an Arnold action scene.
+* "Party Mode" should activate all color changing elements, as well as "Arnold Mode".
 * Refine and expand arnold sound-banks. Need some from True Lies. 
 * Ensure color shifts during "Party Mode" or challenge conditions are different enough to clearly change.
 * Color shift sometimes looks poor under the button's slight gloss effect.
 * Potentially add alternate 90's kid soundbanks such as Mario, TNG, or FF7.
-* Add a command-line only mode enabling Arnold NSFW sound-banks.
+* Possibly add a command-line only mode enabling Arnold NSFW sound-banks.
 
 ## Known Issues
 * Upon enabling color changing functionality on the "Options" box, the "Color Reset" function can't access the "Options" box to complete the color reset. 
