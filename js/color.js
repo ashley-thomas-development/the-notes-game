@@ -40,18 +40,17 @@ $("#scores").on("dblclick", function () {
     colorGrad(elem);
 });
 
-// NOT WORKING - LISTENER WILL NOT GRAB PARENT ELEMENT OF TARGET 
-// $("#options").on("dblclick", function () {
-//   let elem = $(this);
-//   colorGrad(elem);
-// });
+$("#options").on("dblclick", function () {
+  let elem = $(this);
+  colorGrad(elem);
+});
 
 $("#level").on("dblclick", function () {
     let elem = $(this);
     colorGrad(elem);
 });
 
-$("#fill-bar").on("dblclick", function () {
+$("#meter").on("dblclick", function () {
     let elem = $(this);
     colorGrad(elem);
 });
@@ -83,7 +82,8 @@ $(".color-reset-btn").mouseover(function () {
     instructions(6);
 });
 
-$(".color-reset-btn").click(function () {
+$(".color-reset-btn").click(function (event) {
+    event.stopPropagation();
     $(".color-square1").css("backgroundColor", "red");
     $(".color-square2").css("backgroundColor", "green");
     $(".color-square3").css("backgroundColor", "yellow");
@@ -92,6 +92,7 @@ $(".color-reset-btn").click(function () {
     $(".item3").css("backgroundColor", "var(--lightgrey)");
     $(".item8").css("backgroundColor", "var(--lightgrey)");
     $(".item9").css("backgroundColor", "var(--lightgrey)");
+    $(".item11").css("backgroundColor", "var(--lightgrey)");
     if ( arnoldBool == false ) {
         $("#forceArnold").css("color", "var(--theme-blue)");
     }
