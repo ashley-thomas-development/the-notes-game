@@ -49,6 +49,7 @@ Hopefully this makes you laugh and pull out a classic Arnold flick or a set of d
 * Can't get color square audio to stop playing on gameover. 
 * Arnold span tag is too large, needs to be refactored as button and appropriate style applied throughout queries.
 * Meter should reset at 999 to prevent display error.
+* On select low-tier mobile phones, certain color change elements transition suddenly, ignoring the 7s animation.
 
 ## Status
 Project is: _in production_. Will release improvements as I discover fixes and have the time.
