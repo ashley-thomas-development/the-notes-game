@@ -98,7 +98,7 @@ $(".color-reset-btn").click(function (event) {
     }
 });
 
-// test 
+// test  test 
 /* PARTY MODE OPTION */
 
 const colorSqArray = [$('#sq1-box'), $('#sq2-box'), $('#sq4-box'), $('#sq3-box')];
