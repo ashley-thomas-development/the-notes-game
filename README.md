@@ -42,7 +42,7 @@ Hopefully this makes you laugh and pull out a classic Arnold flick or a set of d
 * Ensure color shifts during "Party Mode" or challenge conditions are different enough to clearly change.
 * Color shift to dark colors look bad under the button's slight gloss effect.
 * Potentially add alternate 90's kid soundbanks such as Mario, TNG, or FF7.
-* Possibly add a mode only accesible from the command-line enabling Arnold NSFW sound-banks.
+* Possibly add a mode only accessible from the command-line enabling Arnold NSFW sound-banks.
 
 ## Known Issues
 * Error in meter-fill-bar where multiple color change states occur simultaneously. Cannot reproduce yet.
