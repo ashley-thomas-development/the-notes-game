@@ -44,6 +44,7 @@ Hopefully this makes you laugh and pull out a classic Arnold flick or a set of d
 * Possibly add a mode only accessible from the command-line enabling Arnold NSFW sound-banks.
 
 ## Known Issues
+* The first time a new soundbank is played there is a slight delay during the first playback.
 * Error in meter-fill-bar where multiple color change states occur simultaneously. Cannot reproduce yet.
 * Can't get color square audio to stop playing on gameover. 
 * Arnold span tag is too large, needs to be refactored as button and appropriate style applied throughout queries.
