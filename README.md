@@ -64,4 +64,4 @@ Thanks to 101soundboards.com for providing the download links to these great sou
 And a special thank you to Mr. Schwarzenegger for all the great memories and inspiration! You've helped keep me healthy and made me laugh many times. Arnold Presses FTW!
 
 ## Contact
-Created by William Rideout (https://www.rideoutweb.com/) - feel free to contact me!
+Created by William Rideout (https://www.dev.rideoutweb.com/) - feel free to contact me!
