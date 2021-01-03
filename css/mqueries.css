@@ -391,6 +391,10 @@
         padding-right: 32px;
     }
 
+    .instruction-pane {
+        padding: 0 10px 20px;
+    }
+
 }
 
 
