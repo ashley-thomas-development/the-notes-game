@@ -205,7 +205,7 @@ p {
 .instruction-pane {
   border: 2px solid var(--black);
   box-shadow: inset 0px 0px 3px var(--darkgrey);
-  padding: 0 25px 20px;
+  padding: 0 25px 30px;
   margin: 40px auto;
   background-color: var(--white);
   max-width: 550px;
