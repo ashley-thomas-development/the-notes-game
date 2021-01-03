@@ -37,6 +37,8 @@ Hopefully this makes you laugh and pull out a classic Arnold flick or a set of d
 
 ## To-do List:
 * Improve mobile/flexible layout.
+* Add "times played" counter.
+* Add a database for user login and global high-scores.
 * "Party Mode" should activate all color changing elements.
 * Refine and expand arnold sound-banks. Need some from "True Lies". 
 * Ensure color shifts during "Party Mode" or challenge conditions are different enough to clearly change from previous color value.
