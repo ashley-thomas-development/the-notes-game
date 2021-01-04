@@ -114,9 +114,7 @@
     }
 
     .wide {
-        position: relative;
-        left: -13px;
-        width: 50%;
+        width: 65%;
         height: 100px;
     }
 
@@ -396,6 +394,16 @@
     }
 
 }
+
+@media screen and (max-width: 306px) {
+
+    .invite-subhead {
+        font-size: 21px;
+    }
+
+    
+}
+
 
 
 /* End of document */
