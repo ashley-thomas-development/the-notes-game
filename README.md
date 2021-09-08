@@ -1,9 +1,6 @@
-> An Arnold memory game for the 90's kid in you.
-
-![Example screenshot](/images/readme/arnold-game.png)
-
-# Project Name
-"The Arnold Game"
+# The Arnold Game
+> An Arnold Schwarzenegger memory game for the 90's kid in you.
+> View live at (https://www.thearnoldgame.com).
 
 ## Table of Contents
 * [General Info](#general-info)
@@ -31,8 +28,8 @@ Hopefully this makes you laugh and pull out a classic Arnold flick or a set of d
 * High scores and past scores.
 * Playable on any device.
 
+![Example screenshot](/images/readme/arnold-game.png)
 ![Example screenshot](/images/readme/arnold-game-color.png)
-
 ![Example screenshot](/images/readme/arnold-game-mobile.png)
 
 ## To-do List:
@@ -54,14 +51,11 @@ Hopefully this makes you laugh and pull out a classic Arnold flick or a set of d
 * On select low-tier mobile phones, certain color change elements transition suddenly, ignoring the 7 second animation.
 
 ## Status
-Project is: _in production_. Will release improvements as I discover fixes and have the time.
+Project is: _in production_.
 
-## Inspiration
-I took Angela Yu's complete 2020 web development course. The first independent project was a memory game, we were asked to complete a final result as a challenge. I did not follow the directions - this is what I came up with.
-
+## Inspiration and Thanks
+A special thank you to Mr. Schwarzenegger for all the great memories and inspiration! You've helped keep me healthy and made me laugh many times. Arnold Presses FTW!
 Thanks to 101soundboards.com for providing the download links to these great sound-clips.
 
-And a special thank you to Mr. Schwarzenegger for all the great memories and inspiration! You've helped keep me healthy and made me laugh many times. Arnold Presses FTW!
-
 ## Contact
-Created by William Rideout (https://www.dev.rideoutweb.com/) - feel free to contact me!
+Created by Ash Thomas (https://www.ashthomasweb.com/) - feel free to contact me!
